@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="/component/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <!-- <link rel="stylesheet" type="text/css" href="css/supportSelect.css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://designmodo.github.io/Flat-UI/dist/css/flat-ui.min.css">
+    <title>{{title}}</title>
+  </head>
+  <body>
+
+    <div class="wapper">
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              {{> header}} <!-- partical -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body-web">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>{{message}}</h1>
+                {{{body}}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="/component/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+       $('ul.nav li.dropdown').hover(function() {
+         $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+       }, function() {
+         $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+       });
+    </script>
+  </body>
+</html>

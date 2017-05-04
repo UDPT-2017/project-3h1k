@@ -1,0 +1,17 @@
+.album-cover {
+  width: 100%;
+  height: 200px;
+  border: 10px solid gray;
+  margin-bottom: 20px;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.photo-cover {
+  height: 200px;
+  margin-bottom: 10px;
+}
+.Photo {
+  margin: 5% 5%;
+}

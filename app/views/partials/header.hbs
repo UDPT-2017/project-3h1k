@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  </button>
+  </div>
+  <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/albums">ALBUMS</a></li>
+          <li><a href="/photo">PHOTOS</a></li>
+          <li><a href="/contact">CONTACT</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Check da dang nhap hay chua ?-->
+        {{> Checkuser}}
+      </ul>
+  </div>
+</nav>

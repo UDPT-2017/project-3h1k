@@ -1,0 +1,17 @@
+<div class="row">
+  {{#if FailMess}}
+    <div class="col-md-12">
+      <div class="alert alert-danger">
+          {{FailMess}}
+      </div>
+    </div>
+  {{else}}
+    {{#if successMess}}
+    <div class="col-md-12">
+      <div class="alert alert-success">
+          {{successMess}}
+      </div>
+    </div>
+    {{/if}}
+  {{/if}}
+</div>

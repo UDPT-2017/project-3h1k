@@ -1,0 +1,23 @@
+<div class="container">
+    {{> Checkerror}}
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" action="/contact" method="post">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" id="Email" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="">Message</label>
+                    <textarea class="form-control" name="message" rows="8" cols="80"></textarea>
+                </div>
+                <button type="button" class="btn btn-default">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

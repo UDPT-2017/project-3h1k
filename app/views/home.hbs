@@ -1,0 +1,19 @@
+this is to UpperCase {{toUpperCase message}}
+<link rel="stylesheet" type="text/css" href="/css/supportSelect.css">
+{{> searchbar}}
+<div class="row" style="margin-top:20px;">
+  {{#if isnoResulf }}
+    <div class="col-md-12">
+      <p>No Resulf</p>
+    </div>
+  {{else}}
+  {{#each imgSearch}}
+    <div class="col-md-3">
+      <div class="photo-cover">
+        <a href="/singlePhoto/{{this.id}}"><img src="{{this.url}}" alt=""></a>
+      </div>
+    </div>
+  {{/each}}
+  {{/if}}
+
+</div>

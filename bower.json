@@ -1,0 +1,20 @@
+{
+  "name": "bower",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "NguyenThaiHoc1 <thaihocmap123@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
