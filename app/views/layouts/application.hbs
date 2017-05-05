@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>This is a title</title>
+    <link rel="stylesheet" href="/component/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="wapper">
+        <div class="header">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                  <!-- *(No Complete) Create Header Here -->
+                  <!-- Navigation Header -->
+                  {{> a_Header_navigation}}
+              </div>
+            </div> <!-- End Row Navi-->
+            <div class="row">
+                <div class="col-md-12">
+                  <!-- *(No Complete) Create Search Bar Here -->
+                  <!-- Search Bar -->
+                  {{> a_Header_searchbar}}
+                </div>
+            </div> <!-- End row Search bar-->
+            <div class="row">
+                <div class="col-md-12">
+                  <!-- *(No Complete) Create Menu website Here -->
+                  <!-- Menu website -->
+                  {{> a_Header_menupage}}
+                </div>
+            </div>
+          </div> <!-- End Container-->
+        </div><!-- End Header -->
+        <div class="body-web">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                {{{body}}}
+              </div>
+            </div>
+          </div> <!-- End Container-->
+        </div><!-- End Body web -->
+        <div class="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- *(No Complete) -->
+                <!-- Instruction -->
+                {{> b_Footer_Instruction}}
+              </div>
+            </div> <!-- End Row -->
+            <div class="row">
+              <div class="col-md-12">
+                <!-- *(No Complete) -->
+                <!-- Gioi thieu ve trang web -->
+                {{> b_Footer_present}}
+              </div>
+            </div> <!-- End Row -->
+            <div class="row">
+              <div class="col-md-12">
+                <!-- *(No Complete) -->
+                <!-- Infomation about us
+                     Address -->
+                {{> b_Footer_contact}}
+              </div>
+            </div> <!-- End Row -->
+          </div> <!-- End container -->
+        </div>  <!-- End Footer-->
+    </div> <!-- End Wapper-->
+
+    <script src="/component/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/component/jquery/dist/jquery.min.js"></script>
+  </body>
+</html>
