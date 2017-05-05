@@ -1,7 +1,17 @@
-<form class="" action="next_page.php" method="GET">
+<form class="" action="" method="" id="Form-Search">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
+        <input type="text" class="form-control" placeholder="Search for..." id="input_search">
+        <span class="input-group-btn classType">
+          <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="input_type">
+            <option data-subtext="Rep California">Tom Foolery</option>
+            <option data-subtext="Sen California">Bill Gordon</option>
+            <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
+            <option data-subtext="Rep Alabama">Mario Flores</option>
+            <option data-subtext="Rep Alaska">Don Young</option>
+            <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
+          </select>
+        </span>
+        <span class="input-group-btn classType">
           <button type="submit" id="search_button" class="btn btn-default">Search</button>
         </span>
     </div>

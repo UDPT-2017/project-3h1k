@@ -22,3 +22,25 @@
   -o-transition-delay: 5s;
   transition: 1.5s all;
 }
+
+
+#Selector {
+  position: absolute;
+}
+#Form-Search {
+
+}
+#input_search {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid red;
+}
+#input_type {
+}
+.classType {
+    border: 1px solid red;
+}
+.classType .btn-default{
+  background-color: black;
+}
