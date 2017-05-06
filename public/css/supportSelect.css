@@ -1,15 +1,19 @@
-.navbar-brand1 {
+/*CSS of header*/
+.wapper {
+  margin: 2% 2%;
+}
+#id_nav .navbar-brand1 {
   display: block;
   width: 80px;
   height: 50px;
   margin: 0 auto;
   padding: 5px 5px;
 }
-#logo img {
+#id_nav #logo img {
   width: 100%;
   height: 100%;
 }
-#nav-headers li:hover {
+#id_nav #nav-headers li:hover {
   color: white;
   background-color: black;
   -webkit-transition: 1.0s all;
@@ -24,6 +28,7 @@
 }
 
 
+/*CSS of Search bar*/
 #Selector {
   position: absolute;
 }
@@ -34,13 +39,145 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  border: 1px solid red;
+  width: 100%;
 }
 #input_type {
+
 }
 .classType {
-    border: 1px solid red;
 }
 .classType .btn-default{
   background-color: black;
+}
+
+
+
+
+
+
+
+
+/*CSS of Nav Menu*/
+.mega-dropdown {
+  position: static !important;
+}
+.mega-dropdown-menu {
+    padding: 20px 0px;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+}
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  color: #222;
+  padding: 3px 5px;
+}
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus {
+  text-decoration: none;
+}
+.mega-dropdown-menu .dropdown-header {
+  font-size: 18px;
+  color: #ff3546;
+  padding: 5px 60px 5px 5px;
+  line-height: 30px;
+}
+
+/*.carousel-control {
+  width: 30px;
+  height: 30px;
+  top: -35px;
+
+}
+.left.carousel-control {
+  right: 30px;
+  left: inherit;
+}*/
+/*.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  font-size: 12px;
+  background-color: #fff;
+  line-height: 30px;
+  text-shadow: none;
+  color: #333;
+  border: 1px solid #ddd;
+}*/
+#nav-menu .navbar-nav>li>a  {
+  font-size: 13px;
+}
+#nav-menu .navbar-nav {
+
+}
+
+/*#16a085*/
+#id_menu .hoverheft a {
+  font-size: 12px;
+}
+#id_menu .hoverheft ul li a:hover {
+  color: #16a085;
+}
+
+/*Body*/
+
+
+
+
+/*Media*/
+@media screen and (max-width: 776px) { /* duoi 922 thi no se la nhu vay*/
+  #Selectors {
+    display: none;
+  }
+  #input_search {
+      margin-right: 20px;
+  }
+
+}
+@media screen and (max-width: 992px){
+  #id_nav .navbar-header {
+      float: none;
+  }
+  #id_nav .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  #id_nav .navbar-toggle {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+  }
+  #id_nav .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  #id_nav .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  #id_nav .navbar-collapse.collapse {
+      display: none!important;
+  }
+  #id_nav .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  #id_nav .navbar-nav>li {
+      float: none;
+  }
+  #id_nav .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  #id_nav .collapse.in{
+      display:block !important;
+  }
+  #left-menu {
+    display: none;
+  }
 }
