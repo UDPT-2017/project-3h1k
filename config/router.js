@@ -19,4 +19,10 @@ module.exports = function(app) {
             layout: "application"
         });
     })
+
+    app.get("/register", function(req, res) {
+        res.render("register", {
+            layout: "application"
+        });
+    })
 }
