@@ -14,4 +14,27 @@ module.exports = function(app) {
         });
     })
 
+    app.get("/login", function(req, res) {
+        res.render("login", {
+            layout: "application"
+        });
+    })
+
+    app.get("/register", function(req, res) {
+        res.render("register", {
+            layout: "application"
+        });
+    })
+
+    app.get("/about", function(req, res) {
+        res.render("about", {
+            layout: "application"
+        });
+    })
+
+    app.get("/contact", function(req, res) {
+        res.render("contact", {
+            layout: "application"
+        });
+    })
 }
