@@ -25,4 +25,10 @@ module.exports = function(app) {
             layout: "application"
         });
     })
+
+    app.get("/about", function(req, res) {
+        res.render("about", {
+            layout: "application"
+        });
+    })
 }
