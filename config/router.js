@@ -31,4 +31,10 @@ module.exports = function(app) {
             layout: "application"
         });
     })
+
+    app.get("/contact", function(req, res) {
+        res.render("contact", {
+            layout: "application"
+        });
+    })
 }
