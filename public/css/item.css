@@ -1,0 +1,189 @@
+.content {
+    margin-bottom: 20px;
+}
+
+.event-time {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.event-time p {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.carousel-inner img {
+    border-radius: 50px;
+    padding: 25px;
+}
+
+.title-info p {
+    color: #ADACA7;
+}
+
+.item-info {
+    position: relative;
+}
+
+.current-bid {
+    display: inline-block;
+}
+
+.previous-bid {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.previous-bid p {
+    color: #ADACA7;
+    display: inline-block;
+    text-decoration: line-through;
+}
+
+.btn-bid {
+    display: inline-block;
+}
+
+.owner-avatar {}
+
+#inner .owner-buyer {
+    margin-left: 100px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#inner .owner-buyer .glyphicon {}
+
+#inner .owner-buyer .owner {
+    text-align: center;
+    margin: 0;
+}
+
+#inner .owner-buyer .current-buyer {
+    text-align: center;
+    margin: 0;
+}
+
+#inner p {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.owner {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.current-buyer {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.exchange {
+    display: inline-block;
+}
+
+.glyphicon-resize-horizontal {
+    font-size: 90px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.current-buyer-username p {
+    color: #44679F;
+}
+
+.btn-bid p {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.btn-bid button {
+    display: inline-block;
+    background-color: #456173;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 16px 31px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    margin-bottom: 10px;
+}
+
+.btn-bid button:hover {
+    background-color: #11bfae;
+}
+
+.btn-bid button:active {
+    position: relative;
+    top: 1px;
+}
+
+.panel-body {
+    background-color: #e3e3e3;
+}
+
+.about-seller {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-seller .panel-body {
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.about-seller p {
+    display: inline-block;
+}
+
+div.history {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+div.history-list table th {
+    text-align: center;
+}
+
+div.history-list table td {
+    text-align: center;
+}
+
+div.comment .content {
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+div.comment .content .info {
+    margin-left: 30px;
+}
+
+div.comment .content ul {
+    list-style-type: none;
+}
+
+div.comment .content ul li {
+    margin: 0;
+}
+#myModal .modal-body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
