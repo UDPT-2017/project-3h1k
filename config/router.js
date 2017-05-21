@@ -6,35 +6,40 @@ module.exports = function(app) {
         res.render("home", {
             layout: "application"
         });
-    })
+    });
 
+    // cái item này nên để là :id thì tốt hơn
     app.get("/item", function(req, res) {
         res.render("item", {
             layout: "application"
         });
-    })
+    });
 
     app.get("/login", function(req, res) {
         res.render("login", {
             layout: "application"
         });
-    })
+    });
 
     app.get("/register", function(req, res) {
         res.render("register", {
             layout: "application"
         });
-    })
+    });
 
     app.get("/about", function(req, res) {
         res.render("about", {
             layout: "application"
         });
-    })
+    });
 
     app.get("/contact", function(req, res) {
         res.render("contact", {
             layout: "application"
         });
-    })
+    });
+
+    app.get("/profile", function (req, res) {
+
+    });
 }
