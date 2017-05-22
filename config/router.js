@@ -42,4 +42,22 @@ module.exports = function(app) {
     app.get("/profile", function (req, res) {
 
     });
+
+    app.get("/registerDauGia", function (req, res) {
+      res.render("DangDauGiaPage", {
+          layout: "application"
+      });
+    });
+
+    app.get("/daugia", function (req, res) {
+      res.render("SPDAUGIA", {
+        layout: "application"
+      });
+    });
+
+    app.get("/cart", function (req, res) {
+      res.render("ShoppingCart", {
+        layout: "application"
+      });
+    })
 }
