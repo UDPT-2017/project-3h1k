@@ -2,7 +2,6 @@
    
    Table Of Content
    
-   1. Global Style
  
 
 */
@@ -59,7 +58,7 @@
 .owner-avatar {}
 
 #inner .owner-buyer {
-    margin-left: 100px;
+    margin-left: 0px;
     height: 200px;
     display: flex;
     align-items: flex-end;
@@ -173,6 +172,11 @@ div.history-list table td {
     text-align: center;
 }
 
+
+/*
+   Comments
+
+*/
 div.comment .content {
     display: flex;
     height: 100%;
@@ -264,6 +268,9 @@ div.comment .content ul li {
 }
 .previous-comment ul {
   list-style-type: none;
+}
+.previous-comment .text-center{
+    margin-bottom: 50px;
 }
 
 .thumbnail {
