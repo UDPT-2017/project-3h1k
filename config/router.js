@@ -23,7 +23,7 @@ module.exports = function(app) {
 
     app.get("/register", function(req, res) {
         res.render("register", {
-            layout: "application"
+            layout: "applicationnoHeader"
         });
     });
 
@@ -60,6 +60,18 @@ module.exports = function(app) {
     app.get("/cart", function (req, res) {
       res.render("ShoppingCart", {
         layout: "application"
+      });
+    });
+
+    app.get("/test1", function (req, res) {
+       res.render("loginAdmin", {
+         layout: false
+       });
+    });
+
+    app.get("/test2", function (req, res) {
+      res.render("loginusers", {
+          layout: "applicationnoHeader"
       });
     })
 }
