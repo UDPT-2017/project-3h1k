@@ -40,7 +40,9 @@ module.exports = function(app) {
     });
 
     app.get("/profile", function (req, res) {
-
+        res.render("profile", {
+            layout: "application"
+        });
     });
 
     app.get("/registerDauGia", function (req, res) {
