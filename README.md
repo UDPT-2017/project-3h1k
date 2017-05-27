@@ -3,9 +3,9 @@
 **Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.
 
 Thành viên:
-* [x] **1412193** - Tên sinh viên 1 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
-* [ ] **1412169** - Hồ Thảo Hiền - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
-* [ ] **MSSV3** - Tên sinh viên 3 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
+* [x] **1412193** - Nguyễn Thái Học - NguyenThaiHoc1 - email - Tỉ lệ đóng góp cho đề tài
+* [ ] **1412169** - Hồ Thảo Hiền - HoThaoHien - email - Tỉ lệ đóng góp cho đề tài
+* [ ] **MSSV3** - Trần Hiệp -  - email - Tỉ lệ đóng góp cho đề tài
 * [ ] **MSSV4** - Tên sinh viên 4 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
 
 URL: **URL hosting của đề tài**
