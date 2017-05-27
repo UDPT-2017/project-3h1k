@@ -4,7 +4,7 @@
 
 Thành viên:
 * [x] **1412193** - Tên sinh viên 1 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
-* [ ] **MSSV2** - Tên sinh viên 2 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
+* [ ] **1412169** - Hồ Thảo Hiền - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
 * [ ] **MSSV3** - Tên sinh viên 3 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
 * [ ] **MSSV4** - Tên sinh viên 4 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
 
