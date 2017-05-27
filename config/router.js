@@ -80,4 +80,10 @@ module.exports = function(app) {
           layout: "application"
       });
     });
+    
+    app.get("/itemsx", function (req, res) {
+      res.render("detailProductCOM", {
+          layout: "application"
+      });
+    });
 }
