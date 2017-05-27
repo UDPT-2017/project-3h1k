@@ -73,5 +73,11 @@ module.exports = function(app) {
       res.render("loginusers", {
           layout: "applicationnoHeader"
       });
-    })
+    });
+
+    app.get("/SPCompany", function (req, res) {
+      res.render("SPCompany", {
+          layout: "application"
+      });
+    });
 }
