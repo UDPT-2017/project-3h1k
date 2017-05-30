@@ -1,0 +1,7 @@
+#id_menu a {
+  font-family: 'Scout Condensed',sans-serif;
+  color: black;
+}
+#id_menu a:hover {
+  color: #DAA520;
+}

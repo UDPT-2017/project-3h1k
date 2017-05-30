@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/contact.css">
+<div class="">
+  <form action="/newmessage" method="post" onsubmit="return CheckMessage();">
+    <div class="alert alert-danger" role="alert" style="display:none;" id="error-inf">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only" id="Common-err"></span>
+    </div>
+    <div class="form-group">
+      <!-- se chua select-->
+      <select name="EmailID" class="form-control" id="sel1">
+      </select>
+    </div>
+    <div class="form-group">
+      <input name="fchude" type="text" class="form-control" id="chudeEMAIL" placeholder="Chủ đề">
+    </div>
+    <div class="form-group">
+      <textarea name="fnoidung" id="noidung" rows="8" cols="80" class="form-control" placeholder="Nội dung"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="sentButton">Sent</button>
+  </form>
+</div>

@@ -13,48 +13,32 @@
     <script type="text/javascript" src="/component/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/component/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-  </head>
-  <body>
+    <style media="screen">
+          .bgimg-1 {
+           position: relative;
+           opacity: 0.8;
+           background-position: center;
+           background-repeat: no-repeat;
+           background-size: cover;
 
+         }
+         .bgimg-1 {
+           background-image: url("../../img/background_admin.jpg");
+           height: 100%;
+         }
+    </style>
+  </head>
+  <body class="bgimg-1">
     <div class="wapper">
-        <div class="header">
-          <div class="">
-            <div class="row">
-              <div class="col-md-12">
-                  <!-- *(No Complete) Create Header Here -->
-                  <!-- Navigation Header -->
-                  {{> a_Header_navigation}}
-              </div>
-            </div> <!-- End Row Navi-->
-            <div class="row">
-                <div class="col-md-12">
-                  <!-- *(No Complete) Create Search Bar Here -->
-                  <!-- Search Bar -->
-                  {{> a_Header_searchbar}}
-                </div>
-            </div> <!-- End row Search bar-->
-            <div class="row">
-                <div class="col-md-12">
-                  <!-- *(No Complete) Create Menu website Here -->
-                  <!-- Menu website -->
-                  {{> a_Header_menupage}}
-                </div>
-            </div>
-          </div> <!-- End Container-->
-        </div><!-- End Header -->
         <div class="body-web" style="font-size:12px; margin-top: 20px;">
           <div class="">
             <div class="row">
               <div class="col-md-12">
-                {{{body}}}
+                {{> loginadmin}}
               </div>
             </div>
           </div> <!-- End Container-->
         </div><!-- End Body web -->
-        <hr class="line">
-        <div class="footer">
-          {{> b_Footer_present}}
-        </div>
     </div> <!-- End Wapper-->
     <script src="/component/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="/js/Supportjs.js"></script>

@@ -1,0 +1,8 @@
+.editable{
+  height: 300px;
+  width: 100%;
+  cursor: text;
+  border: 1px solid #999;
+  background: white;
+  overflow-y:scroll;
+}
