@@ -10,19 +10,19 @@ module.exports = function(app) {
 
     // cái item này nên để là :id thì tốt hơn
     app.get("/item", function(req, res) {
-        res.render("item", {
+        res.render("_productAuction/item", {
             layout: "application"
         });
     });
 
     app.get("/login", function(req, res) {
-        res.render("login", {
+        res.render("_featureWEB/login", {
             layout: "application"
         });
     });
 
     app.get("/register", function(req, res) {
-        res.render("register", {
+        res.render("_featureWEB/register", {
             layout: "applicationnoHeader"
         });
     });
@@ -46,43 +46,49 @@ module.exports = function(app) {
     });
 
     app.get("/registerDauGia", function (req, res) {
-      res.render("DangDauGiaPage", {
+      res.render("_featureWEB/DangDauGiaPage", {
           layout: "application"
       });
     });
 
     app.get("/daugia", function (req, res) {
-      res.render("SPDAUGIA", {
+      res.render("_productAuction/SPDAUGIA", {
         layout: "application"
       });
     });
 
     app.get("/cart", function (req, res) {
-      res.render("ShoppingCart", {
+      res.render("_Cart/ShoppingCart", {
         layout: "application"
       });
     });
 
     app.get("/test1", function (req, res) {
-       res.render("loginAdmin", {
+       res.render("_featureWEB/loginAdmin", {
          layout: false
        });
     });
 
     app.get("/test2", function (req, res) {
-      res.render("loginusers", {
+      res.render("_featureWEB/loginusers", {
+          layout: "applicationnoHeader"
+      });
+    });
+
+    app.get("/location", function (req, res) {
+      res.render("storelocation", {
           layout: "applicationnoHeader"
       });
     });
 
     app.get("/SPCompany", function (req, res) {
-      res.render("SPCompany", {
+      res.render("_productCOM/SPCompany", {
           layout: "application"
       });
     });
-    
+
     app.get("/itemsx", function (req, res) {
-      res.render("detailProductCOM", {
+      res.render("_productCOM/detailProductCOM", {
           layout: "application"
       });
     });
