@@ -1,4 +1,15 @@
 var Router = require("express").Router;
+var querystring = require('querystring');
+
+function accountExists (email) {
+  var emails = ['thaihocmap123@gmail.com', 'alex@email.com', 'admin@email.com'];
+  return emails.indexOf(email) > -1;
+}
+
+function usernameExists (usernameEnter) {
+  var username = ['hocmap123'];
+  return username.indexOf(usernameEnter) > -1;
+}
 
 module.exports = function(app) {
 
@@ -91,5 +102,41 @@ module.exports = function(app) {
       res.render("_productCOM/detailProductCOM", {
           layout: "application"
       });
+    });
+
+    app.get("/inputvalidateEmail", function (req, res) {
+      var params = req.url.split('?')[1];
+      var data   = querystring.parse(params);
+      var email  = data.email;
+      console.log(email);
+
+
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+      if (accountExists(email)) {
+        res.write('"Email is already"');
+      } else {
+        res.write('"true"');
+      }
+
+      res.end();
+    });
+    app.get("/inputvalidateUsername", function (req, res) {
+      var params = req.url.split('?')[1].split('=')[1];
+
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+      if (usernameExists(params)) {
+        res.write('"Username is already"');
+      } else {
+        res.write('"true"');
+      }
+      res.end();
     });
 }
