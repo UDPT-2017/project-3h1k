@@ -94,6 +94,30 @@ var userController = {
   userLogout: function (req, res) {
     // destroy()
   },
+  changepassword: function (req, res) {
+    // chuc nang nay duoc su dung cho nhung ai da dang nhap
+    if (Checking(req.body.oldpassword) || Checking(req.body.password) || Checking(req.body.conficpassword)){
+      req.flash("messagesFail", "ChangePassword is fail !!!");
+      res.redirect("/changepassword");
+    } else {
+      console.log(req.session.user);
+       var userchange = new objectUser(req.session.user.Username,req.session.user.Password,req.session.user.Firstname,req.session.user.Lastname,req.session.user.Email, req.session.user.Days,req.session.user.Permission);
+       if(userchange.validPassword(req.body.oldpassword)) {
+         userchange.SettingPassword(userchange.encryptPassword(req.body.password));
+         userDB.changepassword(userchange).then(function (rows) {
+           req.session.user = userchange;
+           req.flash("messagesSuccess", "Password is changed !");
+           res.redirect("/changepassword");
+         }).fail(function (err) {
+           req.flash("messagesFail", "Password change fail ! Please try again");
+           res.redirect("/changepassword");
+         });
+       } else {
+         req.flash("messagesFail", "Old Password Incorrect !!!");
+         res.redirect("/changepassword");
+       }
+    }
+  },
   testingCallback: function (req, res, next) {
       Qs.all([userDB.Testing1(), userDB.Testing2()]).spread(function (a, b) {
           console.log(a);

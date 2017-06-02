@@ -103,4 +103,13 @@ module.exports = function(app) {
     app.post("/register", index.user.userRegister);
     // thu trang home day
     app.get("/tesingview", index.user.testingCallback);
+    app.get("/changepassword", function (req, res) {
+        res.render("_Users/changepassword", {
+          successMess : res.locals.Success,
+          FailMess : res.locals.Fail,
+          layout: "applicationnoHeader"
+        });
+    })
+
+    app.post("/changepassword", index.user.changepassword);
 }

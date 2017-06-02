@@ -53,6 +53,17 @@ var user = {
     });
     return d.promise;
   },
+  changepassword: function (Objects) {
+    var d = q.defer();
+    var sql = 'Update users set f_Password = ? where f_Username = ?';
+    db.query(sql, [Objects.Password, Objects.Username],function (error, results) {
+      if (error){
+        d.reject(error);
+      }
+      d.resolve(results);
+    });
+    return d.promise;
+  },
   Testing1: function () {
     var d = q.defer();
     var sql = 'Select * from users where f_ID = 1';
