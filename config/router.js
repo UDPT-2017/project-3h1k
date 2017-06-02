@@ -18,14 +18,10 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/login", function(req, res) {
-        res.render("_featureWEB/login", {
-            layout: "application"
-        });
-    });
-
     app.get("/register", function(req, res) {
         res.render("_featureWEB/register", {
+            successMess : res.locals.Success,
+            FailMess : res.locals.Fail,
             layout: "applicationnoHeader"
         });
     });
@@ -72,11 +68,15 @@ module.exports = function(app) {
        });
     });
 
-    app.get("/test2", function (req, res) {
+    app.get("/login", function (req, res) {
       res.render("_featureWEB/loginusers", {
+          successMess : res.locals.Success,
+          FailMess : res.locals.Fail,
           layout: "applicationnoHeader"
       });
     });
+    
+    app.post("/login", index.user.userLogin);
 
     app.get("/location", function (req, res) {
       res.render("storelocation", {
@@ -98,4 +98,7 @@ module.exports = function(app) {
 
     app.get("/inputvalidateEmail", index.user.userCheckEmail);
     app.get("/inputvalidateUsername", index.user.userCheckName);
+    app.post("/register", index.user.userRegister);
+    // thu trang home day
+    app.get("/tesingview", index.user.testingCallback);
 }

@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <form role="form" id="signupform" method="get">
+        <form role="form" id="signupform" method="post">
             <h4>Sign Up</h4>
+            {{> Checkerror}}
             <hr class="colorgraph">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -44,7 +45,7 @@
             <hr class="line">
             <div class="row">
                 <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-                <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+                <div class="col-xs-12 col-md-6"><a href="/testsession" class="btn btn-success btn-block btn-lg">Sign In</a></div>
             </div>
         </form>
     </div>
