@@ -1,5 +1,6 @@
 var db = require("./database.js");
 var q = require('q');
+var objectUser = require("../Object/userObject.js");
 
 var user = {
   findbyUserEmail: function (email) {
@@ -15,7 +16,7 @@ var user = {
   },
   findbyUserName: function (username) {
     var d = q.defer();
-    var sql = 'Select f_Username, f_Password from users where f_Username = ?';
+    var sql = 'Select * from users where f_Username = ?';
     db.query(sql, [username],function (error, results) {
       if (error){
         d.reject(error);
@@ -40,8 +41,11 @@ var user = {
     }
 
     today = yyyy+'-'+mm+'-'+dd;
+
+    var newuser = new objectUser(object.username, object.password, object.first_name, object.last_name, object.email, today, 1);
+    newuser.SettingPassword(newuser.encryptPassword(newuser.Password));
     var sql = 'INSERT INTO users(f_Username, f_Password, f_Name, f_Email, f_DOB, f_Permission) values (?, ?, ?, ?, ?, ?)';
-    db.query(sql, [object.username, object.password,object.first_name + object.last_name, object.email, today, 1],function (error, results) {
+    db.query(sql, [newuser.Username, newuser.Password, newuser.Firstname + " " + newuser.Lastname, newuser.Email ,newuser.Days, newuser.Permission],function (error, results) {
       if (error){
         d.reject(error);
       }

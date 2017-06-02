@@ -39,7 +39,9 @@ module.exports = function(app) {
     });
 
     app.get("/profile", function (req, res) {
+        console.log(req.session.user);
         res.render("profiletest", {
+            user: req.session.user,
             layout: "applicationnoHeader"
         });
     });
@@ -75,7 +77,7 @@ module.exports = function(app) {
           layout: "applicationnoHeader"
       });
     });
-    
+
     app.post("/login", index.user.userLogin);
 
     app.get("/location", function (req, res) {

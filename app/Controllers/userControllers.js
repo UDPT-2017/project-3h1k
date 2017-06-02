@@ -1,6 +1,7 @@
 var userDB = require("../models/user.js");
 var querystring = require('querystring');
 var Qs = require('q');
+var objectUser = require("../Object/userObject.js");
 
 function Checking(value) {
   var resulf = value === undefined || value.trim() === "" || value.length === 0;
@@ -54,7 +55,7 @@ var userController = {
      else {
        userDB.insertUser(req.body).then(function (rows) {
          req.flash("messagesSuccess", "Register is success !!!");
-         res.redirect("/test2");
+         res.redirect("/login");
        }).fail(function (err) {
          req.flash("messagesFail", "Register is fail !!!");
          res.redirect("/register");
@@ -69,15 +70,17 @@ var userController = {
         res.redirect("/login");
       }else {
         userDB.findbyUserName(req.body.username).then(function (rows) {
-            // rows chi co dung 1 dong --> truoc tien ta cu lam the nay da xem sao
             if(rows.length > 0) {
-              var password_User = rows[0].f_Password;
-              if(password_User === req.body.password) {
+              var fullname = rows[0].f_Name.split(' ');
+              var Firstname = fullname[0];
+              var Lastname = fullname[1];
+              var newuser = new objectUser(rows[0].f_Username, rows[0].f_Password, Firstname, Lastname, rows[0].f_Email, rows[0].f_DOB, rows[0].f_Permission);
+              if(newuser.validPassword(req.body.password)) {
+                  req.session.user = newuser;
                   res.redirect("/profile");
               }else {
                 req.flash("messagesFail", "LogIn is fail !!!");
                 res.redirect("/login");
-
               }
             }
             else {
@@ -89,7 +92,7 @@ var userController = {
       }
   },
   userLogout: function (req, res) {
-
+    // destroy()
   },
   testingCallback: function (req, res, next) {
       Qs.all([userDB.Testing1(), userDB.Testing2()]).spread(function (a, b) {
