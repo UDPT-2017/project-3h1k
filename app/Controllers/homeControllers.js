@@ -14,8 +14,12 @@ var homeController = {
       });
   },
   homeSearchPage : function (req, res) {
-    Qs.all([homeDB.searchPage(req.body), homeDB.getCatogory()]).spread(function (temp1, temp2) {
-        res.render("", {
+    var object = {
+        searchinput : req.query.searchinput,
+        catogory : req.query.catogory
+    }
+    Qs.all([homeDB.searchPage(object), homeDB.getCatogory()]).spread(function (temp1, temp2) {
+        res.render("_productAuction/SPDAUGIA", {
           layout : "application",
           catogorylist : temp2,
           productlist : temp1,

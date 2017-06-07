@@ -108,5 +108,5 @@ module.exports = function(app) {
     })
 
     app.post("/changepassword", index.user.changepassword);
-    app.post("/searchhome", index.home.homeSearchPage);
+    app.get("/danhmuc", index.home.homeSearchPage);
 }

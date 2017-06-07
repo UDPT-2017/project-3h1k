@@ -16,181 +16,29 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-4 col-sm-6" id="abc">
+            {{#each productlist}}
+              <div class="col-md-4 col-sm-6" id="abc">
                 <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
+                    <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">
+                      <h6 class="text-danger">{{this.proname}}</h6>
+                        <div class="ratings">
+                            <!-- <p>{{this.tinydes}}</p> -->
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                          <a href="/item"><button class="btn btn-danger right"> BID NOW</button></a>
+                        <p>Price: {{this.currentprice}} </p>
+                        <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
+                        <p>Auction End in {{this.songay}} days</p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <button type="button" class="btn btn-link">Add to Wishlist</button>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <a href="/product/?product={{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
+                            </div>
                         </div>
-                    </div>
                 </span>
-            </div>
-            <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <a href="/item"><button class="btn btn-danger right"> BID NOW</button></a>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <a href="/item"><button class="btn btn-danger right"> BID NOW</button></a>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <a href="/item"><button class="btn btn-danger right"> BID NOW</button></a>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <a href="/item"><button class="btn btn-danger right"> BID NOW</button></a>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <button class="btn btn-danger right"> BID NOW</button>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="http://placehold.it/350x280" alt="...">
-                    <h4 class="text-danger">Toyota Fortuner</h4>
-                    <div class="ratings">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p>Uttar Pradesh (North Zone)</p>
-                    <p>Registration No :gaadiexpert.com</p>
-                    <p>Auction End in 5 days</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <button type="button" class="btn btn-link">Add to Wishlist</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <a href="/item"><button class="btn btn-danger right"> BID NOW</button></a>
-                        </div>
-                    </div>
-                </span>
-            </div>
+              </div>
+            {{/each}}
           </div>
           <hr>
           <div class="row" aria-label="..." style="text-align:center;">
