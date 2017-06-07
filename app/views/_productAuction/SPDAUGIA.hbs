@@ -16,29 +16,35 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            {{#each productlist}}
-              <div class="col-md-4 col-sm-6" id="abc">
-                <span class="thumbnail text-center">
-                    <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">
-                      <h6 class="text-danger">{{this.proname}}</h6>
-                        <div class="ratings">
-                            <!-- <p>{{this.tinydes}}</p> -->
-                        </div>
-                        <p>Price: {{this.currentprice}} </p>
-                        <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
-                        <p>Auction End in {{this.songay}} days</p>
-                        <hr class="line">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <button type="button" class="btn btn-link">Add to Wishlist</button>
+            {{#if productlist.length}}
+                {{#each productlist}}
+                  <div class="col-md-4 col-sm-6" id="abc">
+                    <span class="thumbnail text-center">
+                        <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">
+                          <h6 class="text-danger">{{this.proname}}</h6>
+                            <div class="ratings">
+                                <!-- <p>{{this.tinydes}}</p> -->
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                              <a href="/product/?product={{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
+                            <p>Price: {{this.currentprice}} </p>
+                            <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
+                            <p>Auction End in {{this.songay}} days</p>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                  <a href="/product/?product={{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
+                                </div>
                             </div>
-                        </div>
-                </span>
-              </div>
-            {{/each}}
+                    </span>
+                  </div>
+                {{/each}}
+            {{else}}
+                <div class="container">
+                  <h4>No Prodcut In This Time</h4>
+                </div>
+            {{/if}}
           </div>
           <hr>
           <div class="row" aria-label="..." style="text-align:center;">

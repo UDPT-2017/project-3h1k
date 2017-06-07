@@ -12,20 +12,6 @@ var homeController = {
           catogorylist : temp4
         });
       });
-  },
-  homeSearchPage : function (req, res) {
-    var object = {
-        searchinput : req.query.searchinput,
-        catogory : req.query.catogory
-    }
-    Qs.all([homeDB.searchPage(object), homeDB.getCatogory()]).spread(function (temp1, temp2) {
-        res.render("_productAuction/SPDAUGIA", {
-          layout : "application",
-          catogorylist : temp2,
-          productlist : temp1,
-          catogoryChoose : req.body.catogory
-        });
-    });
   }
 }
 module.exports = homeController;
