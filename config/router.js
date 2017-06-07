@@ -5,12 +5,9 @@ var index = require("../app/Controllers/index.js");
 
 module.exports = function(app) {
 
-    app.get("/", function(req, res) {
-        res.render("home", {
-            layout: "application"
-        });
-    });
 
+    // home
+    app.get("/", index.home.homedefaultPage);
     // cái item này nên để là :id thì tốt hơn
     app.get("/item", function(req, res) {
         res.render("_productAuction/item", {
@@ -39,7 +36,6 @@ module.exports = function(app) {
     });
 
     app.get("/profile", function (req, res) {
-        console.log(req.session.user);
         res.render("profiletest", {
             user: req.session.user,
             layout: "applicationnoHeader"
@@ -112,4 +108,5 @@ module.exports = function(app) {
     })
 
     app.post("/changepassword", index.user.changepassword);
+    app.post("/searchhome", index.home.homeSearchPage);
 }

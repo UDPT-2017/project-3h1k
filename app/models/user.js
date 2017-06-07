@@ -16,7 +16,7 @@ var user = {
   },
   findbyUserName: function (username) {
     var d = q.defer();
-    var sql = 'Select * from users where f_Username = ?';
+    var sql = 'select * from dackweb.product order by currentprice DESC limit 0, 5;';
     db.query(sql, [username],function (error, results) {
       if (error){
         d.reject(error);
