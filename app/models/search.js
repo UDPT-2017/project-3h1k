@@ -17,7 +17,6 @@ var search = {
     var d = q.defer();
     var sql = '';
     if(object.catogory == 0){
-      console.log("1");
       sql = 'select * from product and proname LIKE \'%?%\'';
       db.query(sql,[object.searchinput], function (error, results) {
         if (error){
@@ -48,10 +47,31 @@ var search = {
      });
     return d.promise;
   },
-  getPageNumber: function (start, pageSize, object) {
+  getPageNumber: function (start, pageSize, object, typePage) {
     var d = q.defer();
-    var sql  = 'SELECT * from product a where a.catid = ? and a.proname LIKE ? LIMIT ? , ?';
-    db.query(sql,[object.catogory,'%' + object.searchinput + '%',start, pageSize], function(err, data) {
+    if(typePage == 0){
+      var sql1 = 'select b.proid, b.proname, b.tinydes, datediff(datefinish, NOW()) as songay, b.currentprice, count(a.productid) as soluotdaugia\
+                from bidhistory a right join product b on a.productid = b.proid\
+                where b.catid = ? and b.proname LIKE ?\
+                group by b.proid, b.proname, b.tinydes, b.currentprice\
+                order by b.currentprice ASC\
+                LIMIT ? , ?;'
+    }
+    else if (typePage == 1) {
+      var sql1 = 'select b.proid, b.proname, b.tinydes, datediff(datefinish, NOW()) as songay, b.currentprice, count(a.productid) as soluotdaugia\
+                from bidhistory a right join product b on a.productid = b.proid\
+                where b.catid = ? and b.proname LIKE ?\
+                group by b.proid, b.proname, b.tinydes, b.currentprice\
+                LIMIT ? , ?;'
+    }
+    else if (typePage == 2) {
+      var sql1 = 'select b.proid, b.proname, b.tinydes, datediff(datefinish, NOW()) as songay, b.currentprice, count(a.productid) as soluotdaugia\
+                from bidhistory a right join product b on a.productid = b.proid\
+                where b.catid = ? and b.proname LIKE ?\
+                group by b.proid, b.proname, b.tinydes, b.currentprice\
+                LIMIT ? , ?;'
+    }
+    db.query(sql1,[object.catogory,'%' + object.searchinput + '%',start, pageSize], function(err, data) {
           if (err){
            d.reject(err);
           }

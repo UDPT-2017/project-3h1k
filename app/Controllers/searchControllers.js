@@ -4,13 +4,15 @@ var handle = require('handlebars'); // --- module mới dùng để xử lý hel
 
 var totalRec = 0,
 
-pageSize  = 12;
+pageSize  = 1;
 
 pageCount = 0;
 
 var start       = 0;
 
 var currentPage = 1;
+
+var typePage = 1;
 
 var searchController = {
   searchMenuPage : function (req, res) {
@@ -29,29 +31,38 @@ var searchController = {
             if(currentPage >= 1){
               start = (currentPage - 1) * pageSize;
             }
-            searchDB.getPageNumber(start, pageSize, object).then(function (data) {
-              res.render("_productAuction/SPDAUGIA", {
-                layout : "application",
-                catogorylist : temp2,
-                productlist : data,
-                catogoryChoose : req.body.catogory,
-                helpers: {
-                      // thanh trang thai chuyen page
-                      foo: function () {
-                        var html = '';
-                        html += '<li><a href="'+ urlTemp + '&page='+ 1 + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
-                        for (var i = 1; i <= pageCount; i++) {
-                            if(currentPage == i) {
-                              html += '<li class="active"><a href= "'+ urlTemp + '&page='+ i +'">' + i + ' </a></li>';
-                            }else {
-                              html += '<li><a href= "'+ urlTemp + '&page='+ i +'">' + i + ' </a></li>';
-                            }
+            if(typeof req.query.type !== 'undefined'){
+              console.log(typePage);
+              typePage = req.query.type;
+            }
+            searchDB.getPageNumber(start, pageSize, object, typePage).then(function (data) {
+              if (typeof req.query.type !== 'undefined') {
+                  res.send(data);
+              }else {
+                res.render("_productAuction/SPDAUGIA", {
+                  layout : "application",
+                  catogorylist : temp2,
+                  productlist : data,
+                  catogoryChoose : req.body.catogory,
+                  urlType : urlTemp,
+                  helpers: {
+                        // thanh trang thai chuyen page
+                        foo: function () {
+                          var html = '';
+                          html += '<li><a href="'+ urlTemp + '&page='+ 1 + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+                          for (var i = 1; i <= pageCount; i++) {
+                              if(currentPage == i) {
+                                html += '<li class="active"><a href= "'+ urlTemp + '&page='+ i +'">' + i + ' </a></li>';
+                              }else {
+                                html += '<li><a href= "'+ urlTemp + '&page='+ i +'">' + i + ' </a></li>';
+                              }
+                          }
+                          html += '<li><a href="'+ urlTemp + '&page='+ pageCount + '" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>';
+                          return new handle.SafeString(html);
                         }
-                        html += '<li><a href="'+ urlTemp + '&page='+ pageCount + '" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>';
-                        return new handle.SafeString(html);
-                      }
-                }
-              });
+                  }
+                });
+              }
             });
           // end phan trang
     });

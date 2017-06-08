@@ -15,19 +15,18 @@
           </div>
         </div>
         <div class="panel-body">
-          <div class="row">
+          <div class="row" id="rowProduct">
             {{#if productlist.length}}
                 {{#each productlist}}
-                  <div class="col-md-4 col-sm-6" id="abc">
+                  <div class="col-md-4 col-sm-6">
                     <span class="thumbnail text-center">
                         <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">
-                          <h6 class="text-danger">{{this.proname}}</h6>
+                          <h6 class="text-danger" style="font-size: 15px;">{{this.proname}}</h6>
                             <div class="ratings">
-                                <!-- <p>{{this.tinydes}}</p> -->
                             </div>
-                            <p>Price: {{this.currentprice}} </p>
+                            <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}</span> </p>
                             <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
-                            <p>Auction End in {{this.songay}} days</p>
+                            <p style="font-size: 13px;">Auction End in {{this.songay}} days</p>
                             <hr class="line">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
@@ -58,3 +57,18 @@
         </div>
   </div>
 </div>
+
+<script type="text/javascript">
+function sortUsingNestedText(parent, childSelector, keySelector) {
+    var items = parent.children(childSelector).sort(function(a, b) {
+        var vA = $(keySelector, a).text();
+        var vB = $(keySelector, b).text();
+        return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
+    });
+    parent.append(items);
+}
+$('#sortDB').data("sortKey", "span.price");
+$("button.btnSort").click(function() {
+   sortUsingNestedText($('#rowProduct'), "div", $(this).data("sortKey"));
+});
+</script>
