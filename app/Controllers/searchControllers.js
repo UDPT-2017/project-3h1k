@@ -4,7 +4,7 @@ var handle = require('handlebars'); // --- module mới dùng để xử lý hel
 
 var totalRec = 0,
 
-pageSize  = 1;
+pageSize  = 12;
 
 pageCount = 0;
 
@@ -12,7 +12,7 @@ var start       = 0;
 
 var currentPage = 1;
 
-var typePage = 1;
+var typePage = 0;
 
 var searchController = {
   searchMenuPage : function (req, res) {
@@ -32,21 +32,21 @@ var searchController = {
               start = (currentPage - 1) * pageSize;
             }
             if(typeof req.query.type !== 'undefined'){
-              console.log(typePage);
               typePage = req.query.type;
             }
             searchDB.getPageNumber(start, pageSize, object, typePage).then(function (data) {
               if (typeof req.query.type !== 'undefined') {
                   res.send(data);
               }else {
+                var breachcumGen = (object.catogory == 0) ? "All Catogory" : temp1[0].catname;
                 res.render("_productAuction/SPDAUGIA", {
                   layout : "application",
                   catogorylist : temp2,
                   productlist : data,
                   catogoryChoose : req.body.catogory,
                   urlType : urlTemp,
+                  breachcum : breachcumGen,
                   helpers: {
-                        // thanh trang thai chuyen page
                         foo: function () {
                           var html = '';
                           html += '<li><a href="'+ urlTemp + '&page='+ 1 + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';

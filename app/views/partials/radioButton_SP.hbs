@@ -1,9 +1,8 @@
 {{#if urlType}}
 <div class="btn-group" data-toggle="buttons" id="inline_radio">
-    <button class="btn btn-primary"type="button" name="button" id="option1"> All</button>
-    <a href="{{urlType}}"><button class="btn btn-primary"type="button" name="button" id="option2"> SORT</button></a>
-    <button class="btn btn-primary"type="button" name="button" id="option3"> ABC</button>
-    <button class="btn btn-primary btnSort" type="button" id="sortDB">SORT ABCS</button>
+    <button class="btn btn-primary"type="button" name="button" id="option1"> Default</button>
+    <button class="btn btn-primary"type="button" name="button" id="option2"> Small Price</button>
+    <button class="btn btn-primary"type="button" name="button" id="option3"> Turn Best</button>
 </div>
 {{/if}}
 <script type="text/javascript">
@@ -44,12 +43,86 @@
                       </div>\
                       ');
                     });
-                    /*var ul = $("#rowProduct");
+                }
+            });
+      });
+
+      $('#inline_radio').on('click', '#option2', function () {
+            var Editurl = "{{urlType}}".split("&#x3D;");
+            var part2 = Editurl[1].split("&amp;");
+            var stringurl = Editurl[0] + "=" + part2[0] + "&" + part2[1] + "=" + Editurl[2];
+            stringurl += "&type=1";
+            $.ajax({
+                url: stringurl,
+                method: "GET",
+                contentType : "application/json",
+                success : function (res) {
+                    var ul = $("#rowProduct");
                     ul.html("");
-                    res.sinhvien.forEach(function (SV) {
-                        ul.append('<li class="list-group-item">' + '<div class="col-xs-12 col-sm-12">' + '<input class="idText" type="hidden" name="id" value="' + SV.id + '">' + '<p class="fullname" data-search="names"><span class="name glyphicon glyphicon-user" style="width:50px;"></span>' + SV.fullname + '</p> <p class="email"><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>' + SV.email + '</p> <p class="phone"><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>' + SV.phone + '</p> <div class="pull-right">' + '<button type="button" class = "btn btn-success " href="#" data-toggle="tooltip" data-placement="top" title="Add Friends" button-add="addfriendBTN">' + '<span class="glyphicon glyphicon-plus"></span>' + '</button> </div> </div>  <div class="clearfix"></div> </li>');
+                    res.forEach(function (SV) {
+                      ul.append('\
+                      <div class="col-md-4 col-sm-6">\
+                        <span class="thumbnail text-center">\
+                            <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ SV.proname +'</h6>\
+                                <div class="ratings">\
+                                </div>\
+                                <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
+                                <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
+                                <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
+                                <hr class="line">\
+                                <div class="row">\
+                                    <div class="col-md-6 col-sm-6">\
+                                        <button type="button" class="btn btn-link">Add to Wishlist</button>\
+                                    </div>\
+                                    <div class="col-md-6 col-sm-6">\
+                                      <a href="/product/?product={{this.proid}}'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                    </div>\
+                                </div>\
+                        </span>\
+                      </div>\
+                      ');
                     });
-                    $("#refreshfriend").click();   */
+                }
+            });
+      });
+
+      $('#inline_radio').on('click', '#option3', function () {
+            var Editurl = "{{urlType}}".split("&#x3D;");
+            var part2 = Editurl[1].split("&amp;");
+            var stringurl = Editurl[0] + "=" + part2[0] + "&" + part2[1] + "=" + Editurl[2];
+            stringurl += "&type=2";
+            $.ajax({
+                url: stringurl,
+                method: "GET",
+                contentType : "application/json",
+                success : function (res) {
+                    var ul = $("#rowProduct");
+                    ul.html("");
+                    res.forEach(function (SV) {
+                      ul.append('\
+                      <div class="col-md-4 col-sm-6">\
+                        <span class="thumbnail text-center">\
+                            <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ SV.proname +'</h6>\
+                                <div class="ratings">\
+                                </div>\
+                                <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
+                                <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
+                                <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
+                                <hr class="line">\
+                                <div class="row">\
+                                    <div class="col-md-6 col-sm-6">\
+                                        <button type="button" class="btn btn-link">Add to Wishlist</button>\
+                                    </div>\
+                                    <div class="col-md-6 col-sm-6">\
+                                      <a href="/product/?product={{this.proid}}'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                    </div>\
+                                </div>\
+                        </span>\
+                      </div>\
+                      ');
+                    });
                 }
             });
       });
