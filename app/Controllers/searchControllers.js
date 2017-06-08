@@ -59,6 +59,14 @@ var searchController = {
                           }
                           html += '<li><a href="'+ urlTemp + '&page='+ pageCount + '" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>';
                           return new handle.SafeString(html);
+                        },
+                        trimString: function (passedString) {
+                          var theString = passedString.substring(0,20);
+                          if(passedString.length <= 20){
+                            return new handle.SafeString(passedString);
+                          } else {
+                            return new handle.SafeString(theString + "...");
+                          }
                         }
                   }
                 });

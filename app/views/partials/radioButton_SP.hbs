@@ -20,11 +20,18 @@
                     var ul = $("#rowProduct");
                     ul.html("");
                     res.forEach(function (SV) {
+                      var stringProname = "";
+                      if(SV.proname.length > 20) {
+                        stringProname = SV.proname.substring(0,20) + "...";
+                      }
+                      else {
+                        stringProname = SV.proname;
+                      }
                       ul.append('\
                       <div class="col-md-4 col-sm-6">\
                         <span class="thumbnail text-center">\
                             <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
-                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ SV.proname +'</h6>\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
                                 <div class="ratings">\
                                 </div>\
                                 <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
@@ -60,11 +67,18 @@
                     var ul = $("#rowProduct");
                     ul.html("");
                     res.forEach(function (SV) {
+                      var stringProname = "";
+                      if(SV.proname.length > 20) {
+                        stringProname = SV.proname.substring(0,20);
+                      }
+                      else {
+                        stringProname = SV.proname;
+                      }
                       ul.append('\
                       <div class="col-md-4 col-sm-6">\
                         <span class="thumbnail text-center">\
                             <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
-                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ SV.proname +'</h6>\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
                                 <div class="ratings">\
                                 </div>\
                                 <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
@@ -100,11 +114,18 @@
                     var ul = $("#rowProduct");
                     ul.html("");
                     res.forEach(function (SV) {
+                      var stringProname = "";
+                      if(SV.proname.length > 20) {
+                        stringProname = SV.proname.substring(0,20);
+                      }
+                      else {
+                        stringProname = SV.proname;
+                      }
                       ul.append('\
                       <div class="col-md-4 col-sm-6">\
                         <span class="thumbnail text-center">\
                             <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
-                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ SV.proname +'</h6>\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
                                 <div class="ratings">\
                                 </div>\
                                 <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
