@@ -1,9 +1,10 @@
 var searchDB = require("../models/search.js");
 var Qs = require('q');
+var handle = require('handlebars'); // --- module mới dùng để xử lý helpers
 
 var totalRec = 0,
 
-pageSize  = 6,
+pageSize  = 12;
 
 pageCount = 0;
 
@@ -18,13 +19,41 @@ var searchController = {
         catogory : req.query.catogory
     }
     Qs.all([searchDB.searchPage(object), searchDB.getCatogory()]).spread(function (temp1, temp2) {
-        // khuc nay se cai phan trang san pham
-        res.render("_productAuction/SPDAUGIA", {
-          layout : "application",
-          catogorylist : temp2,
-          productlist : temp1,
-          catogoryChoose : req.body.catogory
-        });
+            // start phan trang
+            var urlTemp = req.url.split("&page=")[0];
+            totalRec      = temp1.length;
+            pageCount     =  Math.ceil(totalRec /  pageSize);
+            if (typeof req.query.page !== 'undefined') {
+              currentPage = req.query.page;
+            }
+            if(currentPage >= 1){
+              start = (currentPage - 1) * pageSize;
+            }
+            searchDB.getPageNumber(start, pageSize, object).then(function (data) {
+              res.render("_productAuction/SPDAUGIA", {
+                layout : "application",
+                catogorylist : temp2,
+                productlist : data,
+                catogoryChoose : req.body.catogory,
+                helpers: {
+                      // thanh trang thai chuyen page
+                      foo: function () {
+                        var html = '';
+                        html += '<li><a href="'+ urlTemp + '&page='+ 1 + '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>';
+                        for (var i = 1; i <= pageCount; i++) {
+                            if(currentPage == i) {
+                              html += '<li class="active"><a href= "'+ urlTemp + '&page='+ i +'">' + i + ' </a></li>';
+                            }else {
+                              html += '<li><a href= "'+ urlTemp + '&page='+ i +'">' + i + ' </a></li>';
+                            }
+                        }
+                        html += '<li><a href="'+ urlTemp + '&page='+ pageCount + '" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>';
+                        return new handle.SafeString(html);
+                      }
+                }
+              });
+            });
+          // end phan trang
     });
   }
 }

@@ -36,6 +36,28 @@ var search = {
       });
       return d.promise;
     }
+  },
+  getRowPro: function () {
+    var d = q.defer();
+    var sql = 'select count(*) from product'
+    connection.query(sql, function(err, results) {
+          if (err){
+           d.reject(err);
+          }
+          d.resolve(results);
+     });
+    return d.promise;
+  },
+  getPageNumber: function (start, pageSize, object) {
+    var d = q.defer();
+    var sql  = 'SELECT * from product a where a.catid = ? and a.proname LIKE ? LIMIT ? , ?';
+    db.query(sql,[object.catogory,'%' + object.searchinput + '%',start, pageSize], function(err, data) {
+          if (err){
+           d.reject(err);
+          }
+          d.resolve(data);
+     });
+     return d.promise;
   }
 }
 module.exports = search;
