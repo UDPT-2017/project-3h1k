@@ -9,11 +9,7 @@ module.exports = function(app) {
     // home
     app.get("/", index.home.homedefaultPage);
     // cái item này nên để là :id thì tốt hơn
-    app.get("/item", function(req, res) {
-        res.render("_productAuction/item", {
-            layout: "application"
-        });
-    });
+    app.get("/item/:id", index.item.loadWithID);
 
     app.get("/register", function(req, res) {
         res.render("_featureWEB/register", {
