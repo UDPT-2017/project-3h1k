@@ -5,7 +5,6 @@ var index = require("../app/Controllers/index.js");
 
 module.exports = function(app) {
 
-
     // home
     app.get("/", index.home.homedefaultPage);
     // cái item này nên để là :id thì tốt hơn
@@ -101,8 +100,8 @@ module.exports = function(app) {
           FailMess : res.locals.Fail,
           layout: "applicationnoHeader"
         });
-    })
-
+    });
     app.post("/changepassword", index.user.changepassword);
-    app.get("/danhmuc", index.home.homeSearchPage);
+    app.get("/timkiem", index.search.searchMenuPage);
+    app.get("/danhmuc", index.catogory.searchCatogory)
 }
