@@ -44,7 +44,7 @@ var user = {
 
     var newuser = new objectUser(object.username, object.password, object.first_name, object.last_name, object.email, today, 1);
     newuser.SettingPassword(newuser.encryptPassword(newuser.Password));
-    var sql = 'INSERT INTO users(f_Username, f_Password, f_Name, f_Email, f_DOB, f_Permission) values (?, ?, ?, ?, ?, ?)';
+    var sql = 'INSERT INTO user(f_Username, f_Password, f_Name, f_Email, f_DOB, f_Permission) values (?, ?, ?, ?, ?, ?)';
     db.query(sql, [newuser.Username, newuser.Password, newuser.Firstname + " " + newuser.Lastname, newuser.Email ,newuser.Days, newuser.Permission],function (error, results) {
       if (error){
         d.reject(error);
@@ -55,7 +55,7 @@ var user = {
   },
   changepassword: function (Objects) {
     var d = q.defer();
-    var sql = 'Update users set f_Password = ? where f_Username = ?';
+    var sql = 'Update user set f_Password = ? where f_Username = ?';
     db.query(sql, [Objects.Password, Objects.Username],function (error, results) {
       if (error){
         d.reject(error);
@@ -66,7 +66,7 @@ var user = {
   },
   Testing1: function () {
     var d = q.defer();
-    var sql = 'Select * from users where f_ID = 1';
+    var sql = 'Select * from user where f_ID = 1';
     db.query(sql,function (error, results) {
       if (error){
         d.reject(error);
@@ -77,7 +77,7 @@ var user = {
   },
   Testing2: function () {
     var d = q.defer();
-    var sql = 'Select * from users where f_ID = 2';
+    var sql = 'Select * from user where f_ID = 2';
     db.query(sql,function (error, results) {
       if (error){
         d.reject(error);

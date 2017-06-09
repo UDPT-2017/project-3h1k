@@ -1,6 +1,5 @@
 var db = require("./database.js");
 var q = require('q');
-
 var search = {
   getCatogory: function () {
     var d = q.defer();
@@ -83,7 +82,6 @@ var search = {
                   group by b.proid, b.proname, b.tinydes, b.currentprice\
                   LIMIT ? , ?;'
       }
-
     }
     else if (typePage == 2) {
       if(object.catogory == 0){
@@ -102,7 +100,6 @@ var search = {
                   order by count(a.productid) DESC\
                   LIMIT ? , ?;'
       }
-
     }
     if (object.catogory == 0) {
       db.query(sql1,['%' + object.searchinput + '%',start, pageSize], function(err, data) {
