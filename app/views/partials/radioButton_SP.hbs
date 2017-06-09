@@ -19,37 +19,45 @@
                 success : function (res) {
                     var ul = $("#rowProduct");
                     ul.html("");
-                    res.forEach(function (SV) {
-                      var stringProname = "";
-                      if(SV.proname.length > 20) {
-                        stringProname = SV.proname.substring(0,20) + "...";
-                      }
-                      else {
-                        stringProname = SV.proname;
-                      }
-                      ul.append('\
-                      <div class="col-md-4 col-sm-6">\
-                        <span class="thumbnail text-center">\
-                            <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
-                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
-                                <div class="ratings">\
-                                </div>\
-                                <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
-                                <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
-                                <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
-                                <hr class="line">\
-                                <div class="row">\
-                                    <div class="col-md-6 col-sm-6">\
-                                        <button type="button" class="btn btn-link">Add to Wishlist</button>\
-                                    </div>\
-                                    <div class="col-md-6 col-sm-6">\
-                                      <a href="/product/?product={{this.proid}}'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
-                                    </div>\
-                                </div>\
-                        </span>\
-                      </div>\
-                      ');
-                    });
+                    if(res.length > 0) {
+                      res.forEach(function (SV) {
+                        var stringProname = "";
+                        if(SV.proname.length > 20) {
+                          stringProname = SV.proname.substring(0,20) + "...";
+                        }
+                        else {
+                          stringProname = SV.proname;
+                        }
+                        ul.append('\
+                        <div class="col-md-4 col-sm-6">\
+                          <span class="thumbnail text-center">\
+                              <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
+                                <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
+                                  <div class="ratings">\
+                                  </div>\
+                                  <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
+                                  <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
+                                  <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
+                                  <hr class="line">\
+                                  <div class="row">\
+                                      <div class="col-md-6 col-sm-6">\
+                                          <button type="button" class="btn btn-link">Add to Wishlist</button>\
+                                      </div>\
+                                      <div class="col-md-6 col-sm-6">\
+                                        <a href="/item/'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                      </div>\
+                                  </div>\
+                          </span>\
+                        </div>\
+                        ')
+                      });
+                    }
+                    else {
+                      ul.append('<div class="container">\
+                        <h4>No Prodcut In This Times</h4>\
+                      </div>')
+                    }
+
                 }
             });
       });
@@ -66,7 +74,8 @@
                 success : function (res) {
                     var ul = $("#rowProduct");
                     ul.html("");
-                    res.forEach(function (SV) {
+                    if(res.length > 0) {
+                      res.forEach(function (SV) {
                       var stringProname = "";
                       if(SV.proname.length > 20) {
                         stringProname = SV.proname.substring(0,20);
@@ -90,13 +99,19 @@
                                         <button type="button" class="btn btn-link">Add to Wishlist</button>\
                                     </div>\
                                     <div class="col-md-6 col-sm-6">\
-                                      <a href="/product/?product={{this.proid}}'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                      <a href="/item/'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
                                     </div>\
                                 </div>\
                         </span>\
                       </div>\
                       ');
                     });
+                    }
+                    else {
+                      ul.append('<div class="container">\
+                        <h4>No Prodcut In This Time</h4>\
+                      </div>')
+                    }
                 }
             });
       });
@@ -113,6 +128,7 @@
                 success : function (res) {
                     var ul = $("#rowProduct");
                     ul.html("");
+                  if(res.length > 0) {
                     res.forEach(function (SV) {
                       var stringProname = "";
                       if(SV.proname.length > 20) {
@@ -137,13 +153,18 @@
                                         <button type="button" class="btn btn-link">Add to Wishlist</button>\
                                     </div>\
                                     <div class="col-md-6 col-sm-6">\
-                                      <a href="/product/?product={{this.proid}}'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                      <a href="/item/'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
                                     </div>\
                                 </div>\
                         </span>\
                       </div>\
                       ');
                     });
+                  } else {
+                    ul.append('<div class="container">\
+                      <h4>No Prodcut In This Time</h4>\
+                    </div>')
+                  }
                 }
             });
       });

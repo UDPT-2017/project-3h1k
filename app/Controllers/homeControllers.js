@@ -6,6 +6,7 @@ var homeController = {
   homedefaultPage : function (req, res) {
       Qs.all([homeDB.top5mostauctionbid(), homeDB.top5bestprice() ,homeDB.top5cometoend(), homeDB.getCatogory()]).spread(function (temp1, temp2, temp3, temp4) {
         res.render("home", {
+          user: req.session.user,
           layout : "application",
           mostauctionbid : temp1,
           bestprice : temp2,

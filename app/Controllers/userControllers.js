@@ -9,6 +9,7 @@ function Checking(value) {
 }
 
 var userController = {
+
   userCheckEmail : function (req, res) {
         var params = req.url.split('?')[1];
         var data   = querystring.parse(params);
@@ -92,7 +93,16 @@ var userController = {
       }
   },
   userLogout: function (req, res) {
-    // destroy()
+    // user destroy
+    req.session.destroy(); // huy session hien tai
+    res.redirect('/');
+  },
+  getchangepassword: function (req, res) {
+    res.render("_Users/changepassword", {
+      successMess : res.locals.Success,
+      FailMess : res.locals.Fail,
+      layout: "applicationnoHeader"
+    });
   },
   changepassword: function (req, res) {
     // chuc nang nay duoc su dung cho nhung ai da dang nhap
@@ -118,6 +128,21 @@ var userController = {
        }
     }
   },
+  registerPage: function (req, res) {
+    res.render("_featureWEB/register", {
+        user: req.session.user,
+        successMess : res.locals.Success,
+        FailMess : res.locals.Fail,
+        layout: "applicationnoHeader"
+    });
+  },
+  loginPage: function (req, res) {
+    res.render("_featureWEB/loginusers", {
+        successMess : res.locals.Success,
+        FailMess : res.locals.Fail,
+        layout: "applicationnoHeader"
+    });
+  },
   testingCallback: function (req, res, next) {
       Qs.all([userDB.Testing1(), userDB.Testing2()]).spread(function (a, b) {
           console.log(a);
@@ -125,5 +150,6 @@ var userController = {
           console.log(b);
       });
   }
+  // chi la test callback ma thoi
 }
 module.exports = userController;

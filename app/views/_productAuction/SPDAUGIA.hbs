@@ -3,10 +3,7 @@
         {{> breadcrumd}}
     </div>
 </div>
-<div class="col-md-2">
-  {{> leftmenu}}
-</div>
-<div class="col-md-10">
+<div class="col-md-12">
   <div class="panel panel-default row">
         <div class="panel-heading">
           <p>Auction</p>
@@ -33,7 +30,7 @@
                                     <button type="button" class="btn btn-link">Add to Wishlist</button>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                  <a href="/product/?product={{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
+                                  <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
                                 </div>
                             </div>
                     </span>
