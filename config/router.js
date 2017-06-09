@@ -60,6 +60,7 @@ module.exports = function(app) {
 
     app.get("/danhmuc", index.catogory.searchCatogory);
 
+    // login Admin
     app.get("/test1", function (req, res) {
        res.render("_featureWEB/loginAdmin", {
          layout: false
