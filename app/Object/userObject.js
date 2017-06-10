@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt-nodejs');
 
-module.exports = function (username, password, first_name, last_name, email, day, permission) {
+module.exports = function (username, password, first_name, last_name, email, address, day, permission) {
   this.Username = username;
   this.Password = password;
   this.Firstname = first_name;
@@ -8,6 +8,7 @@ module.exports = function (username, password, first_name, last_name, email, day
   this.Days = day;
   this.Permission = permission;
   this.Email = email;
+  this.Address = address;
 
   this.encryptPassword = function (password) {
       return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);

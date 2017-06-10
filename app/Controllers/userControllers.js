@@ -49,7 +49,7 @@ var userController = {
     });
   },
   userRegister: function (req, res) {
-     if (Checking(req.body.username) || Checking(req.body.password) || Checking(req.body.first_name) || Checking(req.body.last_name) || Checking(req.body.email)){
+     if ( Checking(req.body.address) || Checking(req.body.username) || Checking(req.body.password) || Checking(req.body.first_name) || Checking(req.body.last_name) || Checking(req.body.email)){
        req.flash("messagesFail", "Register is fail !!!");
        res.redirect("/register");
      }
