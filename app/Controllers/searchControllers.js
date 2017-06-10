@@ -40,6 +40,7 @@ var searchController = {
               }else {
                 var  breachcumGen = (object.catogory == 0) ? "All Catogory" : temp2[parseInt(object.catogory) - 1].catname;
                 res.render("_productAuction/SPDAUGIA", {
+                  user: req.session.user,
                   layout : "application",
                   catogorylist : temp2,
                   productlist : data,

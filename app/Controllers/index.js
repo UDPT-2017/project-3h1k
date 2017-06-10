@@ -6,6 +6,8 @@
  var contactController = require("./contactControllers.js");
  var locationController = require("./locationControllers.js");
  var profileController = require("./profileControllers.js");
+ var DangDauGiaController = require("./DangDauGiaControllers.js");
+
  module.exports = {
    home : homeController,
    user : userController,
@@ -14,5 +16,6 @@
    about : aboutController,
    contact : contactController,
    location : locationController,
-   profile : profileController
+   profile : profileController,
+   dangdaugia : DangDauGiaController
  }

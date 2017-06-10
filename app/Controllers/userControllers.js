@@ -93,7 +93,9 @@ var userController = {
       }
   },
   userLogout: function (req, res) {
-    // destroy()
+    // user destroy
+    req.session.destroy(); // huy session hien tai
+    res.redirect('/');
   },
   getchangepassword: function (req, res) {
     res.render("_Users/changepassword", {
@@ -128,6 +130,7 @@ var userController = {
   },
   registerPage: function (req, res) {
     res.render("_featureWEB/register", {
+        user: req.session.user,
         successMess : res.locals.Success,
         FailMess : res.locals.Fail,
         layout: "applicationnoHeader"

@@ -5,7 +5,7 @@ var objectUser = require("../Object/userObject.js");
 var user = {
   findbyUserEmail: function (email) {
     var d = q.defer();
-    var sql = 'Select f_Email from users where f_Email = ?';
+    var sql = 'Select f_Email from user where f_Email = ?';
     db.query(sql, [email],function (error, results) {
       if (error){
         d.reject(error);
@@ -16,7 +16,7 @@ var user = {
   },
   findbyUserName: function (username) {
     var d = q.defer();
-    var sql = 'select * from dackweb.product order by currentprice DESC limit 0, 5;';
+    var sql = 'select * from user where f_Username = ?';
     db.query(sql, [username],function (error, results) {
       if (error){
         d.reject(error);
