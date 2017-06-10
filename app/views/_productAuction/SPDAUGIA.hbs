@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12 col-ms-12">
+        {{> breadcrumd}}
+    </div>
+</div>
+<div class="col-md-12">
+  <div class="panel panel-default row">
+        <div class="panel-heading">
+          <p>Auction</p>
+          <div class="">
+            {{> radioButton_SP}}
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row" id="rowProduct">
+            {{#if productlist.length}}
+                {{#each productlist}}
+                  <div class="col-md-4 col-sm-6">
+                    <span class="thumbnail text-center">
+                        <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">
+                          <h6 class="text-danger" style="font-size: 15px;">{{{trimString this.proname}}}</h6>
+                            <div class="ratings">
+                            </div>
+                            <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}</span> </p>
+                            <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
+                            <p style="font-size: 13px;">Auction End in {{this.songay}} days</p>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                  <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
+                                </div>
+                            </div>
+                    </span>
+                  </div>
+                {{/each}}
+            {{else}}
+                <div class="container">
+                  <h4>No Prodcut In This Time</h4>
+                </div>
+            {{/if}}
+          </div>
+          <hr>
+          <div class="row" aria-label="..." style="text-align:center;">
+          {{#if productlist.length}}
+            <ul class="pagination">
+              {{{foo}}}
+            </ul>
+          {{else}}
+          {{/if}}
+        </div>
+        </div>
+  </div>
+</div>

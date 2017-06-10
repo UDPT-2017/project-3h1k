@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form role="form" id="signupform" method="post">
+            <h4>Sign Up</h4>
+            {{> Checkerror}}
+            <hr class="colorgraph">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+            </div>
+            <div class="form-group">
+                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="username" tabindex="4">
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-3 col-md-3">
+
+                </div>
+                <div class="col-xs-8 col-sm-9 col-md-9">
+
+                </div>
+            </div>
+            <hr class="line">
+            <div class="row">
+                <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                <div class="col-xs-12 col-md-6"><a href="/login" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/component/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript">
+
+  $.validator.setDefaults({
+    errorClass: 'help-block',
+    highlight: function(element) {
+      $(element)
+        .closest('.form-group')
+        .addClass('has-error');
+    },
+    unhighlight: function(element) {
+      $(element)
+        .closest('.form-group')
+        .removeClass('has-error');
+    },
+    errorPlacement: function (error, element) {
+      if (element.prop('type') === 'checkbox') {
+        error.insertAfter(element.parent());
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+  $.validator.addMethod('strongPassword', function(value, element) {
+    return this.optional(element)
+      || value.length >= 6
+      && /\d/.test(value)
+      && /[a-z]/i.test(value);
+  }, 'Your password must be at least 6 characters long and contain at least one number and one char\'.')
+
+  $.validator.addMethod("noSpace", function(value, element) {
+    return value.indexOf(" ") < 0 && value != "";
+  }, "No space please and don't leave it empty");
+
+  $(function () {
+      $("#signupform").validate({
+        rules : {
+          username: {
+            required: true,
+            minlength: 2,
+            maxlength:15,
+            noSpace: true,
+            remote: "/inputvalidateUsername"
+          },
+          email:{
+            required: true,
+            email: true,
+            remote: "/inputvalidateEmail"
+          },
+          first_name : {
+            required: true,
+            noSpace: true
+          },
+          last_name : {
+              required: true,
+              noSpace: true
+          },
+          password: {
+            required: true,
+            strongPassword: true
+          },
+          password_confirmation: {
+            required: true,
+            equalTo: "#password"
+          }
+        },
+        messages: {
+          username: {
+            required: "Please enter a username",
+            maxlength:"max length 15 digits",
+            minlength: "Your username must consist of at least 2 characters"
+          },
+          first_name: {
+            required: "Please Enter your First name"
+          },
+          last_name: {
+            required: "Please Enter your Last name"
+          },
+          password_confirmation:{
+            required: "Confix Your Password",
+            equalTo: "Wrong ! Please try again"
+          }
+        }
+      });
+  });
+</script>
