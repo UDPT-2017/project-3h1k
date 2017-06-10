@@ -1,11 +1,172 @@
-<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Tất cả
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> Mua Ngay
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option3" autocomplete="off"> Đấu Giá
-  </label>
+{{#if urlType}}
+<div class="btn-group" data-toggle="buttons" id="inline_radio">
+    <button class="btn btn-primary"type="button" name="button" id="option1"> Default</button>
+    <button class="btn btn-primary"type="button" name="button" id="option2"> Small Price</button>
+    <button class="btn btn-primary"type="button" name="button" id="option3"> Turn Best</button>
 </div>
+{{/if}}
+<script type="text/javascript">
+  $(function () {
+      $('#inline_radio').on('click', '#option1', function () {
+            var Editurl = "{{urlType}}".split("&#x3D;");
+            var part2 = Editurl[1].split("&amp;");
+            var stringurl = Editurl[0] + "=" + part2[0] + "&" + part2[1] + "=" + Editurl[2];
+            stringurl += "&type=0";
+            $.ajax({
+                url: stringurl,
+                method: "GET",
+                contentType : "application/json",
+                success : function (res) {
+                    var ul = $("#rowProduct");
+                    ul.html("");
+                    if(res.length > 0) {
+                      res.forEach(function (SV) {
+                        var stringProname = "";
+                        if(SV.proname.length > 20) {
+                          stringProname = SV.proname.substring(0,20) + "...";
+                        }
+                        else {
+                          stringProname = SV.proname;
+                        }
+                        ul.append('\
+                        <div class="col-md-4 col-sm-6">\
+                          <span class="thumbnail text-center">\
+                              <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
+                                <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
+                                  <div class="ratings">\
+                                  </div>\
+                                  <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
+                                  <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
+                                  <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
+                                  <hr class="line">\
+                                  <div class="row">\
+                                      <div class="col-md-6 col-sm-6">\
+                                          <button type="button" class="btn btn-link">Add to Wishlist</button>\
+                                      </div>\
+                                      <div class="col-md-6 col-sm-6">\
+                                        <a href="/item/'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                      </div>\
+                                  </div>\
+                          </span>\
+                        </div>\
+                        ')
+                      });
+                    }
+                    else {
+                      ul.append('<div class="container">\
+                        <h4>No Prodcut In This Times</h4>\
+                      </div>')
+                    }
+
+                }
+            });
+      });
+
+      $('#inline_radio').on('click', '#option2', function () {
+            var Editurl = "{{urlType}}".split("&#x3D;");
+            var part2 = Editurl[1].split("&amp;");
+            var stringurl = Editurl[0] + "=" + part2[0] + "&" + part2[1] + "=" + Editurl[2];
+            stringurl += "&type=1";
+            $.ajax({
+                url: stringurl,
+                method: "GET",
+                contentType : "application/json",
+                success : function (res) {
+                    var ul = $("#rowProduct");
+                    ul.html("");
+                    if(res.length > 0) {
+                      res.forEach(function (SV) {
+                      var stringProname = "";
+                      if(SV.proname.length > 20) {
+                        stringProname = SV.proname.substring(0,20);
+                      }
+                      else {
+                        stringProname = SV.proname;
+                      }
+                      ul.append('\
+                      <div class="col-md-4 col-sm-6">\
+                        <span class="thumbnail text-center">\
+                            <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
+                                <div class="ratings">\
+                                </div>\
+                                <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
+                                <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
+                                <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
+                                <hr class="line">\
+                                <div class="row">\
+                                    <div class="col-md-6 col-sm-6">\
+                                        <button type="button" class="btn btn-link">Add to Wishlist</button>\
+                                    </div>\
+                                    <div class="col-md-6 col-sm-6">\
+                                      <a href="/item/'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                    </div>\
+                                </div>\
+                        </span>\
+                      </div>\
+                      ');
+                    });
+                    }
+                    else {
+                      ul.append('<div class="container">\
+                        <h4>No Prodcut In This Time</h4>\
+                      </div>')
+                    }
+                }
+            });
+      });
+
+      $('#inline_radio').on('click', '#option3', function () {
+            var Editurl = "{{urlType}}".split("&#x3D;");
+            var part2 = Editurl[1].split("&amp;");
+            var stringurl = Editurl[0] + "=" + part2[0] + "&" + part2[1] + "=" + Editurl[2];
+            stringurl += "&type=2";
+            $.ajax({
+                url: stringurl,
+                method: "GET",
+                contentType : "application/json",
+                success : function (res) {
+                    var ul = $("#rowProduct");
+                    ul.html("");
+                  if(res.length > 0) {
+                    res.forEach(function (SV) {
+                      var stringProname = "";
+                      if(SV.proname.length > 20) {
+                        stringProname = SV.proname.substring(0,20);
+                      }
+                      else {
+                        stringProname = SV.proname;
+                      }
+                      ul.append('\
+                      <div class="col-md-4 col-sm-6">\
+                        <span class="thumbnail text-center">\
+                            <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">\
+                              <h6 class="text-danger" style="font-size: 15px;">{{this.proname}} '+ stringProname +'</h6>\
+                                <div class="ratings">\
+                                </div>\
+                                <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}'+ SV.currentprice +'</span> </p>\
+                                <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}}'+ SV.soluotdaugia +' turn]</p>\
+                                <p style="font-size: 13px;">Auction End in {{this.songay}}'+ SV.songay +' days</p>\
+                                <hr class="line">\
+                                <div class="row">\
+                                    <div class="col-md-6 col-sm-6">\
+                                        <button type="button" class="btn btn-link">Add to Wishlist</button>\
+                                    </div>\
+                                    <div class="col-md-6 col-sm-6">\
+                                      <a href="/item/'+ SV.proid +'"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>\
+                                    </div>\
+                                </div>\
+                        </span>\
+                      </div>\
+                      ');
+                    });
+                  } else {
+                    ul.append('<div class="container">\
+                      <h4>No Prodcut In This Time</h4>\
+                    </div>')
+                  }
+                }
+            });
+      });
+  });
+</script>
