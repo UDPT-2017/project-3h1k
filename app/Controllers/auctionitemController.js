@@ -6,8 +6,8 @@ var auctionitemController = {
     var proId = req.params.id;
     console.log("Item: " + proId);
     Qs.all([auctionitemdb.loadWithID(proId), auctionitemdb.loadSellerInfo(proId), auctionitemdb.loadHighestBuyerInfo(proId), auctionitemdb.loadTotalItemSeller(proId),
-                    auctionitemdb.loadTotalPersonBid(proId), auctionitemdb.loadBidHistory(proId), auctionitemdb.loadComment(proId)]).spread(function (temp1, temp2, temp3, temp4, temp5, temp6, temp7) {
-      //console.log(temp2);
+                    auctionitemdb.loadTotalPersonBid(proId), auctionitemdb.loadBidHistory(proId), auctionitemdb.loadComment(proId),auctionitemdb.getMaxBidAndStep(proId)])
+                    .spread(function (temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8) {
       res.render("_productAuction/item", {
         layout : "application",
         item : temp1,
@@ -16,9 +16,10 @@ var auctionitemController = {
         sellertotalitems : temp4,
         totalPersonBid : temp5,
         bidhistory : temp6,
-        comment : temp7
+        comment : temp7,
+        maxbidandstep : temp8
       });
     });
-  },
+  }
 }
 module.exports = auctionitemController;
