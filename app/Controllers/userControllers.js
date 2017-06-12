@@ -1,6 +1,7 @@
 var userDB = require("../models/user.js");
 var querystring = require('querystring');
 var Qs = require('q');
+var request = require('request');
 var objectUser = require("../Object/userObject.js");
 
 function Checking(value) {
@@ -49,19 +50,33 @@ var userController = {
     });
   },
   userRegister: function (req, res) {
-     if ( Checking(req.body.address) || Checking(req.body.username) || Checking(req.body.password) || Checking(req.body.first_name) || Checking(req.body.last_name) || Checking(req.body.email)){
-       req.flash("messagesFail", "Register is fail !!!");
-       res.redirect("/register");
-     }
-     else {
-       userDB.insertUser(req.body).then(function (rows) {
-         req.flash("messagesSuccess", "Register is success !!!");
-         res.redirect("/login");
-       }).fail(function (err) {
-         req.flash("messagesFail", "Register is fail !!!");
-         res.redirect("/register");
-       });
-     }
+      if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+        req.flash("messagesFail", "Please Checking Captcha");
+        res.redirect("/register");
+      } else {
+        var secretKey = "6LdWASUUAAAAAI7CnZ9ohJ1aUkf-P4Pap_qnmvdi";
+        var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+        request(verificationUrl,function(error,response,body) {
+          body = JSON.parse(body);
+          if(body.success !== undefined && !body.success) {
+            req.flash("messagesFail", "Failed captcha verification");
+            res.redirect("/register");
+          }
+          if ( Checking(req.body.address) || Checking(req.body.username) || Checking(req.body.password) || Checking(req.body.first_name) || Checking(req.body.last_name) || Checking(req.body.email)){
+            req.flash("messagesFail", "Register is fail !!!");
+            res.redirect("/register");
+          }
+          else {
+            userDB.insertUser(req.body).then(function (rows) {
+              req.flash("messagesSuccess", "Register is success !!!");
+              res.redirect("/login");
+            }).fail(function (err) {
+              req.flash("messagesFail", "Register is fail !!!");
+              res.redirect("/register");
+            });
+          }
+        });
+      }
   },
   userLogin: function (req, res) {
       // khuc nay viet dang nhap
