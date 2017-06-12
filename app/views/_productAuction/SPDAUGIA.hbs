@@ -17,13 +17,14 @@
                 {{#each productlist}}
                   <div class="col-md-4 col-sm-6">
                     <span class="thumbnail text-center">
-                        <img src="/img/Bags/B1a.jpg" alt="..." class="img-responsive" style="width: 350px; height:280px;">
+                        <img src="{{this.image1}}" alt="..." class="img-responsive" style="width: 350px; height:280px;">
                           <h6 class="text-danger" style="font-size: 15px;">{{{trimString this.proname}}}</h6>
                             <div class="ratings">
+                              <p style="font-size: 11px; color: red">Highestbuyerid: {{this.userBid}}</p>
                             </div>
-                            <p style="font-size: 13px;">Price: <span class="price">{{this.currentprice}}</span> </p>
+                            <p style="font-size: 11px;"><span class="price">Best price in time: {{this.priceAuction}}</span> </p>
                             <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
-                            <p style="font-size: 13px;">Auction End in {{this.songay}} days</p>
+                            <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
                             <hr class="line">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
