@@ -3,6 +3,7 @@
         <!-- {{> breadcrumd}} -->
     </div>
 </div>
+{{> popupMessage}}
 <!-- Breadcrumb-->
 <div class="row" style="margin-top: 20px;">
     <div class="col-md-12 col-ms-12">
@@ -48,10 +49,11 @@
                                                           <p style="font-size: 11px;"><span class="price">Best price in time: {{this.priceAuction}} $</span> </p>
                                                           <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
                                                           <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
+                                                          <input class="idText" type="hidden" name="id" value="{{this.proid}}">
                                                           <hr class="line">
                                                           <div class="row">
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                                                  <button button-add="addwishlist" type="button" class="btn btn-link watchlistItem">Add to Wishlist</button>
                                                               </div>
                                                               <div class="col-md-6 col-sm-6">
                                                                 <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
@@ -101,10 +103,11 @@
                                                         <p style="font-size: 11px;">Price: <span class="price">Best price in time: {{this.priceAuction}}</span> </p>
                                                         <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
                                                         <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
+                                                        <input class="idText" type="hidden" name="id" value="{{this.proid}}">
                                                         <hr class="line">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                                                <button button-add="addwishlist" type="button" class="btn btn-link watchlistItem">Add to Wishlist</button>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                               <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
@@ -154,10 +157,11 @@
                                                         <p style="font-size: 11px;">Price: <span class="price">Best price in time: {{this.priceAuction}}</span> </p>
                                                         <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
                                                         <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
+                                                        <input class="idText" type="hidden" name="id" value="{{this.proid}}">
                                                         <hr class="line">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                                                <button button-add="addwishlist" type="button" class="btn btn-link">Add to Wishlist</button>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                               <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
@@ -181,7 +185,55 @@
 </div>
 
 <script type="text/javascript">
+
     $(document).ready(function() {
+        $(".item").on('click', '[button-add="addwishlist"]', function () {
+            var spanItem = $(this).closest("span");
+            var idProduct = spanItem.find(".idText").val();
+            var urlServer = "/wishlist?idProduct=" + idProduct;
+            var ajaxElement = {
+                checking : true
+            };
+            var ObjectItem = {
+                idItem : idProduct
+            };
+            $.ajax({
+              url: "wishlist",
+              method: 'POST',
+              contentType : "application/json",
+              data: JSON.stringify({ajax : ajaxElement, idItem : ObjectItem}),
+              success: function (data) {
+                    // xet redirect
+                    if (typeof data.redirect == 'string') {
+                      window.location.replace(window.location.protocol + "//" + window.location.host + data.redirect);
+                    }
+                    else {
+                       // co nghia la da dang nhap va tra ve thanh cong
+                       // thanh cong minh se lam gi ?
+                       //1. minh se cho hien 1 cai popup len thong bao da thanh cong
+                       //2. neu minh da them san pham nay roi thi minh se in ra la da co san pham nay roi
+                       console.log(data.messagesFail);
+                       console.log(data.messagesSuccess);
+                       if( data.messagesFail !== undefined) {
+                          // that bai
+                          var bodymessage = $("#primary").find(".modal-body h3");
+                          bodymessage.css("color", "red");
+                          bodymessage.text(data.messagesFail);
+                          $("#popupMessages").click();
+                       }
+                       else {
+                          // thanh cong
+                          var bodymessage = $("#primary").find(".modal-body h3");
+                          bodymessage.css("color", "black");
+                          console.log(data.messagesSuccess);
+                          bodymessage.text(data.messagesSuccess);
+                          $("#popupMessages").click();
+                       }
+                    }
+              }
+            });
+        })
+        // ajax xử lý button add to watchlist
         $('.fdi-Carousel .item:first-child').addClass("active");
 
         $('#myCarousel').carousel({
