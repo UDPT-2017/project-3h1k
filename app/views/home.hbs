@@ -3,6 +3,7 @@
         <!-- {{> breadcrumd}} -->
     </div>
 </div>
+{{> popupMessage}}
 <!-- Breadcrumb-->
 <div class="row" style="margin-top: 20px;">
     <div class="col-md-12 col-ms-12">
@@ -48,10 +49,11 @@
                                                           <p style="font-size: 11px;"><span class="price">Best price in time: {{this.priceAuction}} $</span> </p>
                                                           <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
                                                           <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
+                                                          <input class="idText" type="hidden" name="id" value="{{this.proid}}">
                                                           <hr class="line">
                                                           <div class="row">
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                                                  <button button-add="addwishlist" type="button" class="btn btn-link watchlistItem">Add to Wishlist</button>
                                                               </div>
                                                               <div class="col-md-6 col-sm-6">
                                                                 <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
@@ -101,10 +103,11 @@
                                                         <p style="font-size: 11px;">Price: <span class="price">Best price in time: {{this.priceAuction}}</span> </p>
                                                         <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
                                                         <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
+                                                        <input class="idText" type="hidden" name="id" value="{{this.proid}}">
                                                         <hr class="line">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                                                <button button-add="addwishlist" type="button" class="btn btn-link watchlistItem">Add to Wishlist</button>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                               <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
@@ -154,10 +157,11 @@
                                                         <p style="font-size: 11px;">Price: <span class="price">Best price in time: {{this.priceAuction}}</span> </p>
                                                         <p style="font-size: 10px; color: blue">[{{this.soluotdaugia}} turn]</p>
                                                         <p style="font-size: 13px;">Auction End in {{this.sogiay}} Second</p>
+                                                        <input class="idText" type="hidden" name="id" value="{{this.proid}}">
                                                         <hr class="line">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <button type="button" class="btn btn-link">Add to Wishlist</button>
+                                                                <button button-add="addwishlist" type="button" class="btn btn-link">Add to Wishlist</button>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                               <a href="/item/{{this.proid}}"><button class="btn btn-danger right" button-bid="bidnow"> BID NOW</button></a>
@@ -180,8 +184,10 @@
     </div>
 </div>
 
+<script src="/js/PopupMessageClick.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        // ajax xử lý button add to watchlist
         $('.fdi-Carousel .item:first-child').addClass("active");
 
         $('#myCarousel').carousel({
