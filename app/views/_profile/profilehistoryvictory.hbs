@@ -19,14 +19,18 @@
             <div class="tab-content">
               <div class="tab-pane fade in active" id="tab1">
                 <div class="bs-callout bs-callout-danger">
-                  {{> }}
+                  {{> historyvictory}}
                  </div>
                  <hr class="line">
-                 {{#if .length}}
+                 {{#if historyvictory.length}}
                  <div class="row" aria-label="..." style="text-align:center;">
                    <ul class="pagination">
                      {{{foo}}}
                    </ul>
+                </div>
+                {{else}}
+                <div class="row" style="text-align:center;">
+                    <h4>No Items In Here <a href="/">Continue Auction</a></h4>
                 </div>
                 {{/if}}
               </div>
