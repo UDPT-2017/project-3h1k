@@ -46,6 +46,13 @@ module.exports = function(app) {
 
     app.post("/wishlist", checking.isLoggedIn, index.wishlist.additemwishlist);
 
+    app.get("/profile/wishlist", checking.isLoggedIn, index.profile.wishlistUserPage);
+
+    app.get("/profile/historyauction", checking.isLoggedIn, index.profile.wishlistUserPage);
+
+    app.get("/profile/historyvictory", checking.isLoggedIn, index.profile.wishlistUserPage);
+
+    // cai nay la test co the xoa
     app.get("/popup", function (req, res) {
       res.render("testingPopup",{
         layout: "application"
