@@ -85,6 +85,17 @@ var user = {
       d.resolve(results);
     });
     return d.promise;
+  },
+  UpdateUser: function (Objects) {
+    var d = q.defer();
+    var sql = 'Update user set f_Email = ?, f_Name = ?, f_Address = ? where f_ID = ?';
+    db.query(sql,[Objects.email, Objects.name, Objects.address, Objects.Userid], function (error, results) {
+      if (error){
+        d.reject(error);
+      }
+      d.resolve(results);
+    });
+    return d.promise;
   }
 }
 

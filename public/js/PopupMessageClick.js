@@ -36,7 +36,6 @@ $(".item").on('click', '[button-add="addwishlist"]', function () {
                   // thanh cong
                   var bodymessage = $("#primary").find(".modal-body h3");
                   bodymessage.css("color", "black");
-                  console.log(data.messagesSuccess);
                   bodymessage.text(data.messagesSuccess);
                   $("#popupMessages").click();
                }
