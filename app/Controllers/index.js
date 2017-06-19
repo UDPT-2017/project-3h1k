@@ -9,7 +9,8 @@
  var profileController = require("./profileControllers.js");
  var DangDauGiaController = require("./DangDauGiaControllers.js");
  var WishlistController = require("./wishlistControllers");
- 
+ var adminController = require("./adminControllers");
+
  module.exports = {
    home : homeController,
    user : userController,
@@ -21,5 +22,6 @@
    location : locationController,
    profile : profileController,
    dangdaugia : DangDauGiaController,
-   wishlist : WishlistController
+   wishlist : WishlistController,
+   admin : adminController
  }
