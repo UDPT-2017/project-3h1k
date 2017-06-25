@@ -109,13 +109,13 @@ module.exports = function(app) {
     })
 
     // dang lam ne
-    //app.get("/testtingO",checking.isLoggedIn, checking.checkingSeller ,index.seller.Defaultpage); // trang nguoi ban
+    app.get("/testtingO",checking.isLoggedIn, checking.checkingSeller ,index.seller.Defaultpage); // trang nguoi ban
 
-    //app.post("/seller/updateDescription",checking.isLoggedIn, checking.checkingSeller, index.seller.UpdateSellerDetail);
+    app.post("/seller/updateDescription",checking.isLoggedIn, checking.checkingSeller, index.seller.UpdateSellerDetail);
 
-    app.post("/item", upload.array('input-file-preview', 3), index.item.publish);
+    app.post("/item", checking.isLoggedIn, checking.checkingSeller, upload.array('input-file-preview', 3), index.item.publish);
 
-    app.get("/seller/SellerPosted", index.dangdaugia.Defaultpage);// trang chinh ne
+    app.get("/seller/SellerPosted", checking.isLoggedIn, checking.checkingSeller, index.dangdaugia.Defaultpage);// trang chinh ne
 
     // Handle Error Page checking.isLoggedIn, checking.checkingSeller,
     app.use(function(req, res, next){
