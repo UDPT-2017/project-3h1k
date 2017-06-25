@@ -1,8 +1,8 @@
 # WEBSITE ĐẤU GIÁ TRỰC TUYẾN*
 
 Thành viên:
-* [x] **1412193** - Nguyễn Thái Học - NguyenThaiHoc1 - 90%
-* [ ] **1412169** - Hồ Thảo Hiền - HoThaoHien - 10%
+* [x] **1412193** - Nguyễn Thái Học - NguyenThaiHoc1 - 70%
+* [ ] **1412169** - Hồ Thảo Hiền - HoThaoHien - 30%
 * [ ] **1412175** - Trần Hiệp - tranhiepqna
 * [ ] **1412240** - Bùi Đình Khánh - khanhbui1412240
 
