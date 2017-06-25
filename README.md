@@ -7,7 +7,7 @@ Thành viên:
 * [ ] **1412240** - Bùi Đình Khánh - khanhbui1412240
 
 URL: **URL hosting của đề tài**
-Báo cáo: **URL Github Page của đề tài**
+Báo cáo: **https://github.com/HoThaoHien/project-3h1k.github.io/blob/master/README.md**
 
 Làm việc nhóm:
 * [X] Có sử dụng GIT.
