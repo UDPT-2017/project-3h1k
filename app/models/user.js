@@ -16,7 +16,7 @@ var user = {
   },
   findbyUserName: function (username) {
     var d = q.defer();
-    var sql = 'select * from user where f_Username = ?';
+    var sql = 'select * from user where f_Username = ? and f_Permission != \'admin\';';
     db.query(sql, [username],function (error, results) {
       if (error){
         d.reject(error);
@@ -72,6 +72,23 @@ var user = {
         d.reject(error);
       }
       d.resolve(results);
+    });
+    return d.promise;
+  },
+  RequestSelling: function (username) {
+    var d = q.defer();
+    var sql = 'select f_id from user where f_username=?';
+    db.query(sql,[username], function (err, rslt) {
+      if (err){
+        d.reject(err);
+      }
+      var id = rslt[0]['f_id'];
+      sql = 'insert into sellrequest values (?,now(),null)';
+      db.query(sql,[id],function(err0, rslt0) {
+        if (err0)
+          d.reject(err0);
+        d.resolve(rslt0);
+      })
     });
     return d.promise;
   },
