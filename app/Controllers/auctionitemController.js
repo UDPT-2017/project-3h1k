@@ -230,9 +230,9 @@ var auctionitemController = {
         var beatprice=req.body.beatprice;
         var autoextend=req.body.autoextend==="on";
         var catid=req.body.catid;
-        var image1 = req.files[0]?req.files[0].filename:undefined;
-        var image2 = req.files[1]?req.files[1].filename:undefined;
-        var image3 = req.files[2]?req.files[2].filename:undefined;
+        var image1 = req.files[0]? '/img/product/' + req.files[0].filename:undefined;
+        var image2 = req.files[1]? '/img/product/' + req.files[1].filename:undefined;
+        var image3 = req.files[2]? '/img/product/' + req.files[2].filename:undefined;
         auctionitemdb.publish(sku, sellerid, datepost, proname, tinyDes, fulldes, datefinish,startprice , step, beatprice, autoextend,catid, image1, image2, image3).then(function () {
             req.flash("messagesSuccess", "Product is Ported !");
             res.redirect("/testtingO");
