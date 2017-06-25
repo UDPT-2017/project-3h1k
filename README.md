@@ -53,24 +53,36 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 ## Bảo mật (có 3 loại người dùng: Người dùng nặc danh, Người mua, Người bán, Quản trị viên)
 * [X] Chứng thực (1412193)
 * [X] Phân quyền sử dụng một số trang web với nhiều vai trò khác nhau (1412193)
+
    * [X] Không cho phép thao tác vào trang web khi không có quyền (1412193)
+   
    * [X] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (1412193)
+   
    * [X] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (1412193: khi không có quyền sẽ chuyển đến 1 trang khác)
 
 ## Chức năng đã thực hiện
 * [X] Lọc sản phẩm: 
+
    * [X] Top 5 sản phẩm có nhiều lượt ra giá nhất (1412193)
+   
    * [X] Top 5 sản phẩm có giá cao nhất (1412193)
+   
    * [X] Top 5 sản phẩm gần kết thúc (1412193)
 
 * [X] Xem thông tin sản phẩm
+
    * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
+   
    * [X] Có mô tả html (1412193)
+   
    * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
+   
    * [X] Thể hiện đầy đủ các thông tin của sản phẩm: tên, giá hiện tại, giá mua ngay (nếu có), người bán & điểm đánh giá (url), người đang giữ giá cao nhất & điểm đánh giá (url), thời điểm đăng, thời điểm kết thúc (1412193)
    
 * [X] Tìm kiếm sản phẩm
+
    * [X] Tìm theo tên and/or Tìm theo danh mục (1412193)
+   
    * [X] Phân trang kết quả (1412193)
     ```
     Có số trang cụ thể
