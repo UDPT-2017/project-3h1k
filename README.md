@@ -53,76 +53,23 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 ## Bảo mật (có 3 loại người dùng: Người dùng nặc danh, Người mua, Người bán, Quản trị viên)
 * [X] Chứng thực (1412193)
 * [X] Phân quyền sử dụng một số trang web với nhiều vai trò khác nhau (1412193)
-
    * [X] Không cho phép thao tác vào trang web khi không có quyền (1412193)
-   
-   * [X] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (1412193)
-   
+   * [X] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (141219)
    * [X] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (1412193: khi không có quyền sẽ chuyển đến 1 trang khác)
 
 ## Chức năng đã thực hiện
 * [X] Lọc sản phẩm: 
-
-   * [X] Top 5 sản phẩm có nhiều lượt ra giá nhất (1412193)
-   
-   * [X] Top 5 sản phẩm có giá cao nhất (1412193)
-   
+   * [X] Top 5 sản phẩm có nhiều lượt ra giá nhất (1412193)
+   * [X] Top 5 sản phẩm có giá cao nhất (1412193)
    * [X] Top 5 sản phẩm gần kết thúc (1412193)
 
 * [X] Xem thông tin sản phẩm
-
    * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
-   
    * [X] Có mô tả html (1412193)
-   
    * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
-   
    * [X] Thể hiện đầy đủ các thông tin của sản phẩm: tên, giá hiện tại, giá mua ngay (nếu có), người bán & điểm đánh giá (url), người đang giữ giá cao nhất & điểm đánh giá (url), thời điểm đăng, thời điểm kết thúc (1412193)
    
-* [X] Tìm kiếm sản phẩm
 
-   * [X] Tìm theo tên and/or Tìm theo danh mục (1412193)
-   
-   * [X] Phân trang kết quả (1412193)
-    ```
-    Có số trang cụ thể
-    Không có số trang
-    ```
-   * [X] Sắp xếp theo ý người dùng (AJAX: 1412193)
-    ```
-    Thời gian kết thúc giảm dần 
-    Giá tăng dần
-    ```
-   * [X] Những sản phẩm mới đăng trong vòng N phút sẽ có thể hiện khác các sản phẩm còn lại (1412193)
-   * [X] Thể hiện đủ các thông tin: 1 hình ảnh, tên sản phẩm, giá hiện tại, người dùng đang giữ giá (mã hoá), giá mua ngay (nếu có), thời gian còn lại, số lượt ra giá hiện tại (1412193)
-* [X] Đăng ký
-   * [X] reCaptcha (1412193)
-   * [X] Mật khẩu được mã hoá bằng MD5. (1412193)
-* [X] Đăng nhập (1412193)
-* [X] Đăng xuất (1412193)
-* [X] Chức năng người dùng sau khi đăng nhập (với vai trò là người mua): (1412193)
-   * [X] Lưu 1 sản phẩm vào danh sách yêu thích (Watch List) (1412193)
-   ```
-   View tìm sản phẩm
-   View xem chi tiết sản phẩm
-   ```
-   * [X] Ra giá 1 sản phẩm (1412193)
-  ```
-  View xem chi tiết sản phẩm
-  Hệ thống kiểm tra điểm đánh giá (+/+-) hơn 80% thì mới cho phép ra giá
-  Hệ thống đề nghị giá hợp lệ (thường là giá hiện tại + bước giá do người bán thiết lập)
-  Hệ thống yêu cầu xác nhận
-  ```
-   * [X] Xem lịch sử đấu giá của sản phẩm (1412193)
-   * [X] Quản lý hồ sơ cá nhân (1412193)
-   ```
-   Đổi thông tin email, họ tên, mật khẩu (có yêu cầu nhập mật khẩu cũ)
-   Xem điểm đánh giá và chi tiết các lần “được” đánh giá & đoạn nhận xét mà người đánh giá gửi
-   Xem danh sách sản phẩm yêu thích của mình
-   Xem danh sách sản phẩm mà mình đang tham gia đấu giá
-   Xem danh sách sản phẩm mà mình đã thắng (giá cao nhất).Được phép đánh giá người bán +1 hoặc -1, gửi kèm 1 đoạn nhận xét
-    ```
-   * [X] Xin được bán trong vòng 7 ngày (1412193)
 
 * [X] Chức năng người dùng sau khi đăng nhập (với vai trò là người bán):
 
