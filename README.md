@@ -153,15 +153,15 @@ Liệt kê các API nhóm đã sử dụng được ở đây
    * [X] Với mỗi giao dịch “quan trọng”, hệ thống gửi 1 email cho các bên liên quan nhằm thông báo
    ```
    Ra giá thành công, giá sản phẩm được cập nhật
-	Gửi người bán
-	Gửi người ra giá
-	Gửi người giữ giá trước đó (nếu có)
+		Gửi người bán
+		Gửi người ra giá
+		Gửi người giữ giá trước đó (nếu có)
    Người mua bị kick
    Đấu giá kết thúc, không có người mua
-  	Người bán
+  		Người bán
    Đấu giá kết thúc
-	Người bán
-	Người thắng
+		Người bán
+		Người thắng
    ```
 
 
