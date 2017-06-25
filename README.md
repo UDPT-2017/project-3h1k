@@ -2,7 +2,7 @@
 
 Thành viên:
 * [x] **1412193** - Nguyễn Thái Học - NguyenThaiHoc1 - 70%
-* [x] **1412169** - Hồ Thảo Hiền - HoThaoHien - 30%
+* [ ] **1412169** - Hồ Thảo Hiền - HoThaoHien - 30%
 * [ ] **1412175** - Trần Hiệp - tranhiepqna
 * [ ] **1412240** - Bùi Đình Khánh - khanhbui1412240
 
@@ -30,7 +30,7 @@ Trang web dùng để bán hàng online và đấu giá trực tuyến
 * [X] Thêm (1412193, 1412169)
 * [X] Xóa (1412193, 1412169)
 * [X] Sửa (1412193, 1412169)
-* [X] Tìm kiếm (1412193)
+* [X] Tìm kiếm (1412193, 1412169)
 
 ### Xử lý lỗi
 * [X] Xử lý lỗi trong cùng trang web (1412169)
@@ -50,28 +50,68 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 * [X] Thao tác DOM (1412193)
 * [X] AJAX (1412193)
 
-## Bảo mật (có 3 loại người dùng: Người dùng nặc danh, Người mua, Người bán, Quản trị viên)
+## Bảo mật
 * [X] Chứng thực (1412193)
 * [X] Phân quyền sử dụng một số trang web với nhiều vai trò khác nhau (1412193)
-   * [X] Không cho phép thao tác vào trang web khi không có quyền (1412193)
-   * [X] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (141219)
-   * [X] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (1412193: khi không có quyền sẽ chuyển đến 1 trang khác)
+   * [X] Không cho phép thao tác vào trang web khi không có quyền (1412193)
+   * [X] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (1412169)
+   * [X] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (1412193: khi không có quyền sẽ chuyển đến 1 trang khác)
 
 ## Chức năng đã thực hiện
 * [X] Lọc sản phẩm: 
    * [X] Top 5 sản phẩm có nhiều lượt ra giá nhất (1412193)
    * [X] Top 5 sản phẩm có giá cao nhất (1412193)
-   * [X] Top 5 sản phẩm gần kết thúc (1412193)
+   * [X] Top 5 sản phẩm gần kết thúc (1412193)
 
 * [X] Xem thông tin sản phẩm
-   * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
-   * [X] Có mô tả html (1412193)
-   * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
-   * [X] Thể hiện đầy đủ các thông tin của sản phẩm: tên, giá hiện tại, giá mua ngay (nếu có), người bán & điểm đánh giá (url), người đang giữ giá cao nhất & điểm đánh giá (url), thời điểm đăng, thời điểm kết thúc (1412193)
-   
+   * [X] Thể hiện đầy đủ 3 hình ảnh (1412193)
+   * [X] Có mô tả html (1412193)
+   * [X] Thể hiện đầy đủ các thông tin của sản phẩm: tên, giá hiện tại, giá mua ngay (nếu có), người bán & điểm đánh giá (url), người đang giữ giá cao nhất & điểm đánh giá (url), thời điểm đăng, thời điểm kết thúc (1412193)
+   
+* [X] Tìm kiếm sản phẩm
+   * [X] Tìm theo tên and/or Tìm theo danh mục (1412193)
+   * [X] Phân trang kết quả (1412193)
+    ```
+    Có số trang cụ thể
+    Không có số trang
+    ```
+   * [X] Sắp xếp theo ý người dùng (1412193)
+    ```
+    Thời gian kết thúc giảm dần
+    Giá tăng dần
+    ```
+   * [X] Những sản phẩm mới đăng trong vòng N phút sẽ có thể hiện khác các sản phẩm còn lại (1412193)
+   * [X] Thể hiện đủ các thông tin: 1 hình ảnh, tên sản phẩm, giá hiện tại, người dùng đang giữ giá (mã hoá), giá mua ngay (nếu có), thời gian còn lại, số lượt ra giá hiện tại (1412193)
+* [X] Đăng ký (1412193)
+   * [X] reCaptcha (1412193)
+   * [X] Mật khẩu được mã hoá bằng MD5. (1412193)
+* [X] Đăng nhập (1412193)
+* [X] Đăng xuất (1412193)
+* [X] Chức năng người dùng sau khi đăng nhập (với vai trò là người mua): (1412193)
+   * [X] Lưu 1 sản phẩm vào danh sách yêu thích (Watch List) (1412193)
+   ```
+   View tìm sản phẩm
+   View xem chi tiết sản phẩm
+   ```
+   * [X] Ra giá 1 sản phẩm (1412193)
+  ```
+  View xem chi tiết sản phẩm
+  Hệ thống kiểm tra điểm đánh giá (+/+-) hơn 80% thì mới cho phép ra giá
+  Hệ thống đề nghị giá hợp lệ (thường là giá hiện tại + bước giá do người bán thiết lập)
+  Hệ thống yêu cầu xác nhận
+  ```
+   * [X] Xem lịch sử đấu giá của sản phẩm (1412193)
+   * [X] Quản lý hồ sơ cá nhân (1412193)
+   ```
+   Đổi thông tin email, họ tên, mật khẩu (có yêu cầu nhập mật khẩu cũ)
+   Xem điểm đánh giá và chi tiết các lần “được” đánh giá & đoạn nhận xét mà người đánh giá gửi
+   Xem danh sách sản phẩm yêu thích của mình
+   Xem danh sách sản phẩm mà mình đang tham gia đấu giá
+   Xem danh sách sản phẩm mà mình đã thắng (giá cao nhất).Được phép đánh giá người bán +1 hoặc -1, gửi kèm 1 đoạn nhận xét
+    ```
+   * [X] Xin được bán trong vòng 7 ngày (1412193)
 
-
-* [X] Chức năng người dùng sau khi đăng nhập (với vai trò là người bán):
+* [X] Chức năng người dùng sau khi đăng nhập (với vai trò là người bán): (1412169)
 
    * [X] Đăng 1 sản phẩm lên đấu giá (1412169)
     ```
@@ -91,7 +131,7 @@ Liệt kê các API nhóm đã sử dụng được ở đây
    Xem danh sách sản phẩm đã có người mua (Được phép đánh giá +1 hoặc -1 người chiến thắng, có gửi kèm 1 đoạn nhận xét)
    ```
     
-* [X] Chức năng người dùng sau khi đăng nhập (với vai trò là quản trị viên):
+* [X] Chức năng người dùng sau khi đăng nhập (với vai trò là quản trị viên): (1412193)
    * [X] Duyệt yêu cầu xin được bán của người dùng (1412193)
    ```
    Xem danh sách người mua xin được bán
@@ -114,14 +154,23 @@ Liệt kê các API nhóm đã sử dụng được ở đây
    * [X] Với mỗi giao dịch “quan trọng”, hệ thống gửi 1 email cho các bên liên quan nhằm thông báo (1412193)
    ```
    Ra giá thành công, giá sản phẩm được cập nhật
-		Gửi người ra giá
+	Gửi người bán
+	Gửi người ra giá
+	Gửi người giữ giá trước đó (nếu có)
    Người mua bị kick
    Đấu giá kết thúc, không có người mua
-  		Người bán
+  	Người bán
    Đấu giá kết thúc
-		Người bán
-		Người thắng
+	Người bán
+	Người thắng
    ```
+
+
+
+
+
+
+
 
 
 ## Demo
