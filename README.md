@@ -8,6 +8,8 @@ Thành viên:
 
 URL: **https://bidproduct.herokuapp.com/**
 
+(CSDL: Mysql . Em đã cố gắng để push lên heroku nhưng cái gói mysql của nodejs nó bị 1 lỗi ở chỗ connect và end mỗi lần xử dụng câu query nên nó bị lổi "Cannot enqueue Query after invoking quit" tụi em không sửa được . tụi em sử dụng ClearDB)
+
 Báo cáo: **https://github.com/HoThaoHien/project-3h1k.github.io/blob/master/README.md**
 
 Làm việc nhóm:
