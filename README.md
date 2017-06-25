@@ -6,7 +6,7 @@ Thành viên:
 * [ ] **1412175** - Trần Hiệp - tranhiepqna
 * [ ] **1412240** - Bùi Đình Khánh - khanhbui1412240
 
-URL: **URL hosting của đề tài**
+URL: **https://bidproduct.herokuapp.com/**
 
 Báo cáo: **https://github.com/HoThaoHien/project-3h1k.github.io/blob/master/README.md**
 
@@ -177,7 +177,7 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 
 Link ảnh GIF demo ứng dụng:
 
-![Video Walkthrough](demo.gif)
+https://www.youtube.com/watch?v=1z4__jO5jNg&feature=youtu.be
 
 Tạo ảnh GIF với chương trình [LiceCap](http://www.cockos.com/licecap/).
 
